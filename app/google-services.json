@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "326499298113",
+    "project_id": "gallery-app-justcode",
+    "storage_bucket": "gallery-app-justcode.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:326499298113:android:987bea5f350baafc948fc0",
+        "android_client_info": {
+          "package_name": "com.example.galleryapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs-zV_pM8x0qr3wpqj-vb5qa4-MzDz-R4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
