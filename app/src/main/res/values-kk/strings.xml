@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Gallery App</string>
     <string name="name">NAME</string>
@@ -5,8 +6,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_bottom_nav_text">Home</string>
     <string name="account_bottom_nav_text">Account</string>
-    <string name="search_bottom_nav_text">search</string>
-    <string name="settings_icon_text">settings</string>
-    <string name="log_out_icon_text">log out</string>
-    <string name="log_in_icon_text">log in</string>
+    <string name="search_bottom_nav_text">поиск</string>
+    <string name="settings_icon_text">настройки</string>
+    <string name="log_out_icon_text">выход</string>
+    <string name="log_in_icon_text">вход</string>
 </resources>

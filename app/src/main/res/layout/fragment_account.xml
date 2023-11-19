@@ -1,14 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AccountFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlwaysCollapsed">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:keepScreenOn="true"
+                android:src="@drawable/photo_2023_11_14_15_01_32"
+                app:layout_collapseMode="parallax"
+                />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                app:title="Toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="-20dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris viverra urna eu gravida hendrerit. Suspendisse lobortis non turpis vel ullamcorper. Ut dolor odio, sagittis vel pellentesque sed, ultrices quis nunc. Aliquam porttitor imperdiet malesuada. Fusce dapibus lobortis accumsan. In faucibus sollicitudin enim vitae aliquet. Aliquam ut euismod ipsum. Praesent at ullamcorper erat. Nunc accumsan ipsum in elit molestie ullamcorper. Nullam finibus sed ante id feugiat. Praesent eu malesuada lacus. Sed eu massa lobortis ante laoreet vestibulum ac non arcu.\n\nProin malesuada lacus vel nulla consequat dignissim. Praesent tempus, felis at aliquet interdum, metus mauris venenatis erat, vel tempor ipsum justo vel orci. Nullam ipsum justo, elementum vitae libero in, tempus ornare libero. Aenean venenatis euismod massa, vitae ornare justo laoreet iaculis. In non consequat enim, vel finibus mi. Vestibulum congue gravida lacinia. Suspendisse potenti. Proin dignissim, purus in tristique vehicula, ipsum enim blandit neque, non ornare ex diam quis tortor. Aenean vestibulum, metus vel sollicitudin euismod, purus lacus condimentum mi, eu mattis dui turpis nec lectus. Duis eget dolor id magna lobortis bibendum. Proin in sem metus. Sed a mattis felis. Quisque luctus auctor justo vel porttitor. In efficitur mattis rhoncus.\n\nAliquam vel pulvinar lacus. Etiam aliquet turpis lacus, at auctor erat efficitur in. Vestibulum consequat elit libero, vel semper enim ultricies malesuada. Ut eu sollicitudin turpis. Aliquam volutpat ante ut commodo interdum. Curabitur pharetra, urna quis viverra placerat, sem nisi maximus elit, vel finibus elit felis non magna. Proin pretium, nisi malesuada lacinia vestibulum, nunc velit tempor augue, venenatis aliquet ante nisl in metus. Donec ultricies mauris efficitur dui convallis auctor. Vestibulum fringilla orci ligula, at pretium neque iaculis tempor. Vestibulum semper, libero vitae tincidunt rhoncus, neque lorem tincidunt dolor, ut tempor orci sem eu felis. Donec quis tempor diam. Suspendisse ornare, mi dapibus molestie finibus, sapien eros rhoncus velit, id pharetra elit odio et ipsum. Cras vitae augue eget nulla hendrerit volutpat. Nulla facilisis purus eu justo cursus cursus."
+                app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/tool_bar"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:minHeight="?actionBarSize"-->
+<!--        android:background="@color/primaryContainer"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"/>-->
+
+
+<!--    <androidx.constraintlayout.utils.widget.ImageFilterView-->
+<!--        android:id="@+id/avatar"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        />-->
+
+<!--    <TextView-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="settings"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/avatar"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"/>-->
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,10 +4,10 @@ plugins {
 
     //the Google services Gradle plugin
     id("com.google.gms.google-services")
+
+    //kapt
     id("kotlin-android")
     id("kotlin-kapt")
-//    kotlin("kapt") version "1.9.20"
-//    id("org.jetbrains.kotlin.kapt") version "1.9.20"
 }
 
 android {
