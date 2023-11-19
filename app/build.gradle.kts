@@ -62,11 +62,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
     implementation("com.google.firebase:firebase-analytics")
 
-
-//    kapt("groupId:artifactId:version")
-
     //Room dependencies
-    val room_version = "2.5.2"
+    val room_version = "2.6.0"
     implementation("androidx.room:room-runtime:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")
 
@@ -81,4 +78,8 @@ dependencies {
     val nav_version = "2.7.5"
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
+
+
+    //splash screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
 }

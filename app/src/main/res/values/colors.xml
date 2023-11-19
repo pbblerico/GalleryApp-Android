@@ -35,4 +35,8 @@
     <color name="surfaceTint">#006A61</color>
     <color name="outlineVariant">#BEC9C6</color>
     <color name="scrim">#000000</color>
+
+
+    <color name="icon_light">#fff5e6</color>
+    <color name="icon_dark">#0D2024</color>
 </resources>
