@@ -10,4 +10,6 @@
         android:layout_height="match_parent"
         android:text="home" />
 
+    <include layout="@layout/view_progress_button"/>
+
 </FrameLayout>
