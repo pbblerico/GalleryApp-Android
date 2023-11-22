@@ -5,13 +5,5 @@
     android:layout_height="match_parent"
     tools:context=".SearchFragment">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="email"
-        android:inputType="text"
-        android:background="@drawable/selector_edittext"
-        style="@style/EditTextStyle"
-        />
 
 </FrameLayout>
