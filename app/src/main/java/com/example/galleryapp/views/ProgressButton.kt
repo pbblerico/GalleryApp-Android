@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.FrameLayout
+import com.example.galleryapp.R
 import com.example.galleryapp.databinding.ViewProgressButtonBinding
 import com.example.galleryapp.utils.setSafeOnClickListener
 
@@ -15,14 +16,20 @@ class ProgressButtonView @JvmOverloads constructor(
     private val binding: ViewProgressButtonBinding =
         ViewProgressButtonBinding.inflate(LayoutInflater.from(context), this)
 
+    private var loading = false
 
     init {
-        binding.progressButton.setSafeOnClickListener { setLoading(false) }
+        setAttrs(attrs, R.styleable.ProgressButtonView) {
+
+        }
+
+
+        binding.progressButton.setSafeOnClickListener { setLoading() }
     }
 
 
-    fun setLoading(loading: Boolean) {
-        isClickable = !loading
+    fun setLoading() {
+        loading = !loading
         if (loading) {
             binding.progressAnimation.visibility = View.VISIBLE
             binding.progressButton.textScaleX = 0f

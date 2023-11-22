@@ -10,6 +10,8 @@
         android:layout_height="match_parent"
         android:text="home" />
 
-    <include layout="@layout/view_progress_button"/>
+    <com.example.galleryapp.views.ProgressButtonView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </FrameLayout>

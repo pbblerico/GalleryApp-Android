@@ -24,6 +24,7 @@ class AccountFragment : Fragment() {
         binding = FragmentAccountBinding.inflate(inflater, container, false)
 //        binding.toolBar.inflateMenu(R.menu.account_app_bar_logged_user)
 
+
         return binding.root
     }
 }
