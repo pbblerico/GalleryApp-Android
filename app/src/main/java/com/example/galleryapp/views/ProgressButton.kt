@@ -17,12 +17,12 @@ class ProgressButtonView @JvmOverloads constructor(
         ViewProgressButtonBinding.inflate(LayoutInflater.from(context), this)
 
     private var loading = false
+    var action: (() ->Unit)? =null
 
     init {
         setAttrs(attrs, R.styleable.ProgressButtonView) {
-
+            binding.progressButton.text = it.getString(R.styleable.ProgressButtonView_button_title)
         }
-
 
         binding.progressButton.setSafeOnClickListener { setLoading() }
     }
@@ -31,6 +31,7 @@ class ProgressButtonView @JvmOverloads constructor(
     fun setLoading() {
         loading = !loading
         if (loading) {
+            action?.invoke()
             binding.progressAnimation.visibility = View.VISIBLE
             binding.progressButton.textScaleX = 0f
         } else {

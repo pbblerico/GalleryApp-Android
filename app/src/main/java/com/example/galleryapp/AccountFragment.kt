@@ -5,12 +5,9 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintSet.Motion
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.galleryapp.databinding.FragmentAccountBinding
-import com.example.galleryapp.utils.setSafeOnClickListener
 
 
 class AccountFragment : Fragment() {

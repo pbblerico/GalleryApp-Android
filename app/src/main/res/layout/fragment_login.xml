@@ -18,27 +18,32 @@
 
 
     <EditText
+        android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="email"
         android:inputType="text"
         android:background="@drawable/selector_edittext"
         style="@style/EditTextStyle"
+        android:drawableStart="@drawable/ic_email"
         />
 
 
     <EditText
+        android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="password"
         style="@style/EditTextStyle"
         android:inputType="numberPassword"
+        android:drawableStart="@drawable/ic_lock"
         />
 
     <com.example.galleryapp.views.ProgressButtonView
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:button_title="login"/>
+        app:button_title="login" />
 
 
 

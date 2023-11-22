@@ -4,13 +4,6 @@ plugins {
 
     //the Google services Gradle plugin
     id("com.google.gms.google-services")
-
-    //kapt
-    id("kotlin-android")
-    id("kotlin-kapt")
-
-    //hilt
-    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -63,18 +56,8 @@ dependencies {
 
     //Firebase dependecies
     implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
-    implementation("com.google.firebase:firebase-analytics")
-
-    //Room dependencies
-    val roomVersion = "2.6.0"
-    implementation("androidx.room:room-runtime:$roomVersion")
-    annotationProcessor("androidx.room:room-compiler:$roomVersion")
-
-    // To use Kotlin annotation processing tool (kapt)
-    kapt("androidx.room:room-compiler:$roomVersion")
-
-    // optional - Kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:$roomVersion")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-database")
 
 
     //Navigation Component
@@ -90,11 +73,7 @@ dependencies {
     val lottieVersion = "6.2.0"
     implementation("com.airbnb.android:lottie:$lottieVersion")
 
-    //hilt
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
-}
+    //koin
+    implementation("io.insert-koin:koin-android:3.2.0")
 
-kapt {
-    correctErrorTypes = true
 }

@@ -48,19 +48,27 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_behavior="@string/appbar_scrolling_view_behavior"-->
+<!--        android:layout_marginVertical="?android:actionBarSize"-->
+<!--        android:paddingHorizontal="32dp">-->
+
+<!--            <TextView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris viverra urna eu gravida hendrerit. Suspendisse lobortis non turpis vel ullamcorper. Ut dolor odio, sagittis vel pellentesque sed, ultrices quis nunc. Aliquam porttitor imperdiet malesuada. Fusce dapibus lobortis accumsan. In faucibus sollicitudin enim vitae aliquet. Aliquam ut euismod ipsum. Praesent at ullamcorper erat. Nunc accumsan ipsum in elit molestie ullamcorper. Nullam finibus sed ante id feugiat. Praesent eu malesuada lacus. Sed eu massa lobortis ante laoreet vestibulum ac non arcu.\n\nProin malesuada lacus vel nulla consequat dignissim. Praesent tempus, felis at aliquet interdum, metus mauris venenatis erat, vel tempor ipsum justo vel orci. Nullam ipsum justo, elementum vitae libero in, tempus ornare libero. Aenean venenatis euismod massa, vitae ornare justo laoreet iaculis. In non consequat enim, vel finibus mi. Vestibulum congue gravida lacinia. Suspendisse potenti. Proin dignissim, purus in tristique vehicula, ipsum enim blandit neque, non ornare ex diam quis tortor. Aenean vestibulum, metus vel sollicitudin euismod, purus lacus condimentum mi, eu mattis dui turpis nec lectus. Duis eget dolor id magna lobortis bibendum. Proin in sem metus. Sed a mattis felis. Quisque luctus auctor justo vel porttitor. In efficitur mattis rhoncus.\n\nAliquam vel pulvinar lacus. Etiam aliquet turpis lacus, at auctor erat efficitur in. Vestibulum consequat elit libero, vel semper enim ultricies malesuada. Ut eu sollicitudin turpis. Aliquam volutpat ante ut commodo interdum. Curabitur pharetra, urna quis viverra placerat, sem nisi maximus elit, vel finibus elit felis non magna. Proin pretium, nisi malesuada lacinia vestibulum, nunc velit tempor augue, venenatis aliquet ante nisl in metus. Donec ultricies mauris efficitur dui convallis auctor. Vestibulum fringilla orci ligula, at pretium neque iaculis tempor. Vestibulum semper, libero vitae tincidunt rhoncus, neque lorem tincidunt dolor, ut tempor orci sem eu felis. Donec quis tempor diam. Suspendisse ornare, mi dapibus molestie finibus, sapien eros rhoncus velit, id pharetra elit odio et ipsum. Cras vitae augue eget nulla hendrerit volutpat. Nulla facilisis purus eu justo cursus cursus."-->
+<!--                 />-->
+
+<!--    </androidx.core.widget.NestedScrollView>-->
+
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_marginVertical="?android:actionBarSize"
-        android:paddingHorizontal="32dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris viverra urna eu gravida hendrerit. Suspendisse lobortis non turpis vel ullamcorper. Ut dolor odio, sagittis vel pellentesque sed, ultrices quis nunc. Aliquam porttitor imperdiet malesuada. Fusce dapibus lobortis accumsan. In faucibus sollicitudin enim vitae aliquet. Aliquam ut euismod ipsum. Praesent at ullamcorper erat. Nunc accumsan ipsum in elit molestie ullamcorper. Nullam finibus sed ante id feugiat. Praesent eu malesuada lacus. Sed eu massa lobortis ante laoreet vestibulum ac non arcu.\n\nProin malesuada lacus vel nulla consequat dignissim. Praesent tempus, felis at aliquet interdum, metus mauris venenatis erat, vel tempor ipsum justo vel orci. Nullam ipsum justo, elementum vitae libero in, tempus ornare libero. Aenean venenatis euismod massa, vitae ornare justo laoreet iaculis. In non consequat enim, vel finibus mi. Vestibulum congue gravida lacinia. Suspendisse potenti. Proin dignissim, purus in tristique vehicula, ipsum enim blandit neque, non ornare ex diam quis tortor. Aenean vestibulum, metus vel sollicitudin euismod, purus lacus condimentum mi, eu mattis dui turpis nec lectus. Duis eget dolor id magna lobortis bibendum. Proin in sem metus. Sed a mattis felis. Quisque luctus auctor justo vel porttitor. In efficitur mattis rhoncus.\n\nAliquam vel pulvinar lacus. Etiam aliquet turpis lacus, at auctor erat efficitur in. Vestibulum consequat elit libero, vel semper enim ultricies malesuada. Ut eu sollicitudin turpis. Aliquam volutpat ante ut commodo interdum. Curabitur pharetra, urna quis viverra placerat, sem nisi maximus elit, vel finibus elit felis non magna. Proin pretium, nisi malesuada lacinia vestibulum, nunc velit tempor augue, venenatis aliquet ante nisl in metus. Donec ultricies mauris efficitur dui convallis auctor. Vestibulum fringilla orci ligula, at pretium neque iaculis tempor. Vestibulum semper, libero vitae tincidunt rhoncus, neque lorem tincidunt dolor, ut tempor orci sem eu felis. Donec quis tempor diam. Suspendisse ornare, mi dapibus molestie finibus, sapien eros rhoncus velit, id pharetra elit odio et ipsum. Cras vitae augue eget nulla hendrerit volutpat. Nulla facilisis purus eu justo cursus cursus."
-                 />
-
-    </androidx.core.widget.NestedScrollView>
+        tools:listitem="@layout/view_folder"
+        tools:itemCount="5"
+        app:spanCount="2"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

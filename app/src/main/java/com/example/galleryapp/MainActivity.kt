@@ -3,26 +3,17 @@ package com.example.galleryapp
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.splashscreen.SplashScreen
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.galleryapp.databinding.ActivityMainBinding
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
-//        val splashScreen = installSplashScreen()
-//        setupSplashScreen(splashScreen = splashScreen)
-
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
 
 
@@ -37,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        loadData()
+//        loadData()
     }
 
     override fun onStop() {
@@ -46,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 //            saveData()
 //        }
     }
-    private fun loadData() {
-        Profile.name = sharedPref.getString(getString(R.string.name), null)
-    }
+//    private fun loadData() {
+//        Profile.name = sharedPref.getString(getString(R.string.name), null)
+//    }
 }
