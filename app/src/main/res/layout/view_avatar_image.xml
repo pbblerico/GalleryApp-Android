@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                android:src="@drawable/photo_2023_11_14_15_01_32"
+                android:src="@drawable/ic_account"
                 />
 
         </androidx.cardview.widget.CardView>

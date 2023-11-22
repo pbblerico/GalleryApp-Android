@@ -15,7 +15,7 @@
         <attr name="toolbar_back_color" format="color"/>
     </declare-styleable>
 
-    <declare-styleable name="CircularImageView">
+    <declare-styleable name="AvatarImageView">
         <attr name="image" format="reference"/>
         <attr name="text" format="string"/>
         <attr name="cardview_size" format="string"/>

@@ -5,11 +5,13 @@
     android:layout_height="match_parent"
     tools:context=".SearchFragment">
 
-    <TextView
+    <EditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="search" />
-
-
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:inputType="text"
+        android:background="@drawable/selector_edittext"
+        style="@style/EditTextStyle"
+        />
 
 </FrameLayout>
