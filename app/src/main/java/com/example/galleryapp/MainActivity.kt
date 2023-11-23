@@ -33,15 +33,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+    //todo change with enum
     private fun bottomBarVisibility(nav: NavController) {
         nav.addOnDestinationChangedListener {_, destination, _ ->
             when(destination.id) {
-                R.id.loginFragment,
-                R.id.signUpFragment
-                -> binding.bottomNavigation.visibility = View.GONE
-                else -> binding.bottomNavigation.visibility = View.VISIBLE
+                R.id.searchFragment,
+                R.id.homeFragment,
+                R.id.accountFragment -> binding.bottomNavigation.visibility = View.VISIBLE
+                else -> binding.bottomNavigation.visibility = View.GONE
             }
-
         }
     }
 

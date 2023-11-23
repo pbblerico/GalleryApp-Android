@@ -1,4 +1,4 @@
-package com.example.galleryapp.authorization.data.dataModels
+package com.example.galleryapp.authorization.data.models
 
 data class DataUser(
     val id: String?,

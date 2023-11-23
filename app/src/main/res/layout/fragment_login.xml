@@ -9,6 +9,7 @@
 
 
     <com.example.galleryapp.views.ToolbarView
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:start_icon="@drawable/ic_arrow_back"

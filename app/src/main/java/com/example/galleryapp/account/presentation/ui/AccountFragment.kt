@@ -1,4 +1,4 @@
-package com.example.galleryapp.account.ui
+package com.example.galleryapp.account.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

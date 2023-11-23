@@ -12,7 +12,7 @@
         tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.galleryapp.account.ui.AccountFragment"
+        android:name="com.example.galleryapp.account.presentation.ui.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.galleryapp.HomeFragment"
+        android:name="com.example.galleryapp.home.presentation.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
@@ -34,7 +34,7 @@
         tools:layout="@layout/fragment_login" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.galleryapp.SearchFragment"
+        android:name="com.example.galleryapp.search.presentation.ui.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment

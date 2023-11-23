@@ -1,6 +1,7 @@
 package com.example.galleryapp.authorization.presentation.ui
 
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.galleryapp.databinding.FragmentLoginBinding
 import com.example.galleryapp.utils.setSafeOnClickListener
 import com.example.galleryapp.authorization.presentation.viewModels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlin.math.log
 
 
 @AndroidEntryPoint
@@ -31,7 +33,12 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
 
         binding.button.action = {
-            viewModel.login(binding.email.text.toString(), binding.password.text.toString())
+            login()
+        }
+
+        binding.toolbar.startIconAction = {
+//            Navigation.findNavController(binding.root).navigate(R.id.accountFragment)
+            Navigation.findNavController(binding.root).popBackStack()
         }
 
         binding.toSignUp.setSafeOnClickListener {
@@ -41,4 +48,10 @@ class LoginFragment : Fragment() {
         return binding.root
     }
 
+    private fun login() {
+        val email = binding.email.text.toString().trim()
+        val password = binding.password.text.toString().trim()
+
+        viewModel.login(email, password)
+    }
 }

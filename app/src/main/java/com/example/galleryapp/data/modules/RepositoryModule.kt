@@ -9,13 +9,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-//val repositoryModule = module {
-////    single {
-////        getAuthRepository(firebaseAuth = get(), firebaseDatabase = get())
-////    }
-//}
-
-//private fun getAuthRepository(firebaseAuth: FirebaseAuth, firebaseDatabase: FirebaseDatabase): AuthRepostitory = AuthRepositoryImpl(firebaseAuth, firebaseDatabase)
 
 @InstallIn(SingletonComponent::class)
 @Module

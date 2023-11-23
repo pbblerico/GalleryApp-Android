@@ -1,4 +1,4 @@
-package com.example.galleryapp.authorization.data.di
+package com.example.galleryapp.authorization.di
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
