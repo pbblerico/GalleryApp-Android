@@ -1,4 +1,4 @@
-package com.example.galleryapp
+package com.example.galleryapp.account.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.example.galleryapp.R
 import com.example.galleryapp.databinding.FragmentAccountBinding
 
 

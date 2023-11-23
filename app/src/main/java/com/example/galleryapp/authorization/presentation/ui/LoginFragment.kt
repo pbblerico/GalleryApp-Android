@@ -1,19 +1,25 @@
-package com.example.galleryapp
+package com.example.galleryapp.authorization.presentation.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
+import com.example.galleryapp.R
 import com.example.galleryapp.databinding.FragmentLoginBinding
-import com.example.galleryapp.viewModels.LoginViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.example.galleryapp.utils.setSafeOnClickListener
+import com.example.galleryapp.authorization.presentation.viewModels.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
-    private val viewModel: LoginViewModel by viewModel()
+//    private val viewModel: LoginViewModel by viewModel()
 
+    private val viewModel: LoginViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -28,7 +34,9 @@ class LoginFragment : Fragment() {
             viewModel.login(binding.email.text.toString(), binding.password.text.toString())
         }
 
-        Log.d("he", "hello_fragment")
+        binding.toSignUp.setSafeOnClickListener {
+            Navigation.findNavController(it).navigate(R.id.signUpFragment)
+        }
 
         return binding.root
     }

@@ -1,8 +1,8 @@
 package com.example.galleryapp.utils
 
-sealed class Resource<out T> {
-//    object Empty: Resource<Nothing>()
-//    object Loading: Resource<Nothing>()
-//    data class Success<out T>(data: T): Resource<T>()
-//    data class Error<T>(message: String, data: T? = null)
+sealed class Resource<T> {
+    data object Empty: Resource<Nothing>()
+    data object Loading: Resource<Nothing>()
+    data class Success<T>(val data: T): Resource<T>()
+    data class Error<T>(val message: String?): Resource<T>()
 }

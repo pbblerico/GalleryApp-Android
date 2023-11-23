@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".authorization.presentation.ui.SignUpFragment"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/login"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:gravity="center|top"
+        android:textSize="32sp"
+        android:textStyle="bold"/>
 
-</FrameLayout>
+    <EditText
+        android:id="@+id/nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/name"
+        android:inputType="text"
+        android:background="@drawable/selector_edittext"
+        style="@style/EditTextStyle"
+        android:drawableStart="@drawable/ic_write"
+        />
+
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:inputType="text"
+        android:background="@drawable/selector_edittext"
+        style="@style/EditTextStyle"
+        android:drawableStart="@drawable/ic_email"
+        />
+
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        style="@style/EditTextStyle"
+        android:inputType="numberPassword"
+        android:drawableStart="@drawable/ic_lock"
+        />
+
+    <com.example.galleryapp.views.ProgressButtonView
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:button_title="@string/sign_up" />
+
+
+
+
+
+</LinearLayout>

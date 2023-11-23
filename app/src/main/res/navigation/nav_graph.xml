@@ -12,7 +12,7 @@
         tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/accountFragment"
-        android:name="com.example.galleryapp.AccountFragment"
+        android:name="com.example.galleryapp.account.ui.AccountFragment"
         android:label="fragment_account"
         tools:layout="@layout/fragment_account" >
         <action
@@ -29,7 +29,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.galleryapp.LoginFragment"
+        android:name="com.example.galleryapp.authorization.presentation.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
@@ -39,7 +39,7 @@
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.galleryapp.SignUpFragment"
+        android:name="com.example.galleryapp.authorization.presentation.ui.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" />
 </navigation>

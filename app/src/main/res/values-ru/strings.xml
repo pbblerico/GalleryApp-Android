@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="name">NAME</string>
+    <string name="name">имя</string>
     <string name="home_bottom_nav_text">Home</string>
     <string name="account_bottom_nav_text">Аккаунт</string>
     <string name="search_bottom_nav_text">Поиск</string>
-    <string name="settings_icon_text">Настройки</string>
-    <string name="log_out_icon_text">Выход</string>
-    <string name="log_in_icon_text">Вход</string>
+    <string name="settings_icon_text">настройки</string>
+    <string name="log_out_icon_text">выход</string>
+    <string name="log_in_icon_text">вход</string>
+    <string name="sign_up">регистрация</string>
+    <string name="password">пароль</string>
+    <string name="email">почта</string>
+    <string name="login">войти</string>
 </resources>

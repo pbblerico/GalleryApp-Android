@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android">
+<merge xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
     <LinearLayout
@@ -14,7 +15,8 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_arrow_back"
             android:visibility="gone"
-            android:padding="16dp"/>
+            android:padding="16dp"
+            app:tint="@color/onPrimary"/>
 
         <TextView
             android:id="@+id/toolbar_title"
@@ -34,7 +36,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            app:tint="@color/onPrimary" />
 
     </LinearLayout>
 

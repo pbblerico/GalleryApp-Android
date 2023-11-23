@@ -4,6 +4,11 @@ plugins {
 
     //the Google services Gradle plugin
     id("com.google.gms.google-services")
+
+    //hilt
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
+
 }
 
 android {
@@ -74,6 +79,16 @@ dependencies {
     implementation("com.airbnb.android:lottie:$lottieVersion")
 
     //koin
-    implementation("io.insert-koin:koin-android:3.2.0")
+//    implementation("io.insert-koin:koin-android:3.2.0")
+
+
+    //hilt
+    implementation("com.google.dagger:hilt-android:2.46.1")
+    kapt("com.google.dagger:hilt-compiler:2.46.1")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.activity:activity-ktx:1.8.0")
+//    annotationProcessor("com.google.dagger:dagger-compiler:2.44")
 
 }

@@ -7,7 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.galleryapp.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref: SharedPreferences
@@ -25,19 +28,4 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setupWithNavController(nav)
     }
 
-
-    override fun onStart() {
-        super.onStart()
-//        loadData()
-    }
-
-    override fun onStop() {
-        super.onStop()
-//        if(!binding.et.text.isNullOrBlank()) {
-//            saveData()
-//        }
-    }
-//    private fun loadData() {
-//        Profile.name = sharedPref.getString(getString(R.string.name), null)
-//    }
 }
