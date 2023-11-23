@@ -3,7 +3,9 @@ package com.example.galleryapp
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.galleryapp.databinding.ActivityMainBinding
@@ -26,6 +28,21 @@ class MainActivity : AppCompatActivity() {
 
         val nav = findNavController(R.id.nav_host_fragment)
         binding.bottomNavigation.setupWithNavController(nav)
+
+        bottomBarVisibility(nav)
+    }
+
+
+    private fun bottomBarVisibility(nav: NavController) {
+        nav.addOnDestinationChangedListener {_, destination, _ ->
+            when(destination.id) {
+                R.id.loginFragment,
+                R.id.signUpFragment
+                -> binding.bottomNavigation.visibility = View.GONE
+                else -> binding.bottomNavigation.visibility = View.VISIBLE
+            }
+
+        }
     }
 
 }

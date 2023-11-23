@@ -58,8 +58,17 @@
         <item name="android:textColor">@color/black</item>
         <item name="textStartPadding">8dp</item>
         <item name="android:padding">16dp</item>
-        <item name="android:layout_margin">8dp</item>
+        <item name="android:layout_marginHorizontal">12dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
         <item name="drawableTint">@color/primary</item>
         <item name="android:background">@drawable/selector_edittext</item>
+        <item name="android:drawablePadding">10dp</item>
+    </style>
+
+    <style name="AuthorizationTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:layout_marginBottom">32sp</item>
+        <item name="android:gravity">center|top</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>

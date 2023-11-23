@@ -7,53 +7,66 @@
     tools:context=".authorization.presentation.ui.LoginFragment"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/login"
+
+    <com.example.galleryapp.views.ToolbarView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:gravity="center|top"
-        android:textSize="32sp"
-        android:textStyle="bold"/>
+        app:start_icon="@drawable/ic_arrow_back"
+        app:start_icon_visibility="true"/>
 
 
-    <EditText
-        android:id="@+id/email"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="email"
-        android:inputType="text"
-        android:background="@drawable/selector_edittext"
-        style="@style/EditTextStyle"
-        android:drawableStart="@drawable/ic_email"
-        />
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            style="@style/AuthorizationTitle"/>
 
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="password"
-        style="@style/EditTextStyle"
-        android:inputType="numberPassword"
-        android:drawableStart="@drawable/ic_lock"
-        />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="email"
+            android:inputType="text"
+            android:background="@drawable/selector_edittext"
+            style="@style/EditTextStyle"
+            android:drawableStart="@drawable/ic_email"
+            />
 
-    <com.example.galleryapp.views.ProgressButtonView
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:button_title="login" />
 
-    <TextView
-        android:id="@+id/to_sign_up"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="or create account"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:layout_margin="10dp"/>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            style="@style/EditTextStyle"
+            android:inputType="textPassword"
+            android:drawableStart="@drawable/ic_lock"
+            />
 
+        <com.example.galleryapp.views.ProgressButtonView
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:button_title="login" />
+
+        <TextView
+            android:id="@+id/to_sign_up"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="or create account"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
 
 
 </LinearLayout>
