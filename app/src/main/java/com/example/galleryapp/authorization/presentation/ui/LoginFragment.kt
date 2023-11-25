@@ -1,5 +1,6 @@
 package com.example.galleryapp.authorization.presentation.ui
 
+import android.util.Log
 import androidx.navigation.Navigation
 import com.example.galleryapp.R
 import com.example.galleryapp.authorization.presentation.viewModels.LoginViewModel
@@ -15,6 +16,8 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
     override fun getViewModelClass(): Class<LoginViewModel> = LoginViewModel::class.java
 
     override fun setUpViews() {
+        Log.d("login_fragment", "set up")
+
         binding.authorization.toolbar.startIconAction = {
             Navigation.findNavController(binding.root).popBackStack()
         }
@@ -22,6 +25,18 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
         binding.authorization.toOtherOption.setSafeOnClickListener {
             Navigation.findNavController(it).navigate(R.id.signUpFragment)
         }
+
+        binding.authorization.submitBtn.setSafeOnClickListener {
+            login()
+        }
+    }
+
+    private fun login() {
+        val email = binding.authorization.emailET.text.toString().trim()
+        val password = binding.authorization.passwordET.text.toString().trim()
+
+        Log.d("login_fragment", "hello")
+//        viewModel.login(email, password)
     }
 
     override fun observeView() {

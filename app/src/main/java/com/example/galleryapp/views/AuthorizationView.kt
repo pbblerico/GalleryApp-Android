@@ -37,5 +37,4 @@ class AuthorizationView @JvmOverloads constructor(
             binding.toOtherOption.text = toOtherOption
         }
     }
-
 }

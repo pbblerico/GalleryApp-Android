@@ -7,6 +7,7 @@
     tools:context=".authorization.presentation.ui.SignUpFragment">
 
     <com.example.galleryapp.views.AuthorizationView
+        android:id="@+id/authorization"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:show_nickname_input="true"

@@ -1,31 +1,43 @@
 package com.example.galleryapp.authorization.presentation.ui
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.navigation.Navigation
+import com.example.galleryapp.R
+import com.example.galleryapp.authorization.presentation.viewModels.SignUpViewModel
 import com.example.galleryapp.databinding.FragmentSignUpBinding
+import com.example.galleryapp.shared.base.BaseFragment
+import com.example.galleryapp.utils.setSafeOnClickListener
+import dagger.hilt.android.AndroidEntryPoint
 
 //import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@AndroidEntryPoint
+class SignUpFragment : BaseFragment<FragmentSignUpBinding, SignUpViewModel>(R.layout.fragment_sign_up) {
 
-class SignUpFragment : Fragment() {
-    private lateinit var binding: FragmentSignUpBinding
-//    private val viewModel: LoginViewModel by viewModel()
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    //    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//    }
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        binding = FragmentSignUpBinding.inflate(inflater, container, false)
+////        binding.button.action = {
+////            viewModel.signUp(binding.nickname.text.toString(), binding.email.text.toString(), binding.password.text.toString())
+////        }
+//
+//        return binding.root
+//    }
+    override fun getViewBinding() = FragmentSignUpBinding.inflate(layoutInflater)
+
+    override fun getViewModelClass() = SignUpViewModel::class.java
+
+    override fun setUpViews() {
+        binding.authorization.toOtherOption.setSafeOnClickListener {
+            Navigation.findNavController(binding.root).navigate(R.id.loginFragment)
+        }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentSignUpBinding.inflate(inflater, container, false)
-//        binding.button.action = {
-//            viewModel.signUp(binding.nickname.text.toString(), binding.email.text.toString(), binding.password.text.toString())
-//        }
-
-        return binding.root
+    override fun observeView() {
     }
 }
