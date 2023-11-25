@@ -7,12 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.galleryapp.R
+import com.example.galleryapp.account.presentation.adapter.FolderAdapter
+import com.example.galleryapp.data.models.Folder
 import com.example.galleryapp.databinding.FragmentAccountBinding
 
 
 class AccountFragment : Fragment() {
     private lateinit var binding: FragmentAccountBinding
+    private val adapter: FolderAdapter = FolderAdapter()
+
 
     private var isShow = true
     private var scrollRange = -1
@@ -33,6 +39,17 @@ class AccountFragment : Fragment() {
 //            Toast.makeText(requireContext(), "${binding.toolbar.scrollY}", Toast.LENGTH_SHORT).show()
             Navigation.findNavController(binding.root).navigate(R.id.loginFragment)
         }
+
+        binding.folderAdapter.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.folderAdapter.adapter = adapter
+
+        val list = listOf(
+            Folder(0, "one", ""),
+            Folder(1, "two", ""),
+            Folder(2, "four", ""),
+            Folder(3, "three", ""),
+        )
+        adapter.submitList(list)
 
 //        binding.toolbar.setSafeOnClickListener {
 //            if
