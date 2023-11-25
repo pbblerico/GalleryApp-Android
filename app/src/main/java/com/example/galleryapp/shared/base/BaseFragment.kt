@@ -12,7 +12,6 @@ import androidx.viewbinding.ViewBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
-@AndroidEntryPoint
 abstract class BaseFragment<VB: ViewBinding, VM: ViewModel>(@LayoutRes protected val contentLayoutId: Int)
     : Fragment() {
 
@@ -23,7 +22,12 @@ abstract class BaseFragment<VB: ViewBinding, VM: ViewModel>(@LayoutRes protected
     protected lateinit var viewModel: VM
     protected abstract fun getViewModelClass(): Class<VM>
 
-    init {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        init()
+    }
+
+    private fun init() {
         binding = getViewBinding()
         viewModel = ViewModelProvider(this)[getViewModelClass()]
     }
