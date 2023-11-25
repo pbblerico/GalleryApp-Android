@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:toolbar_title="hello"
+        app:toolbar_title="hello аыоваыожалатыжвожповажпожваполжвыапожвыапловжапо"
         app:toolbar_back_color="@color/secondaryContainer"
         app:trailing_icon="@drawable/ic_login"
         app:trailing_icon_visibility="true"/>

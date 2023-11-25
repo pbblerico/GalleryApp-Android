@@ -8,4 +8,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(val repo: AuthRepostitory): ViewModel() {
+    //todo(implementation of view model)
 }
