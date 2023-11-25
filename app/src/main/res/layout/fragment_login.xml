@@ -1,73 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".authorization.presentation.ui.LoginFragment"
-    android:orientation="vertical">
+    >
 
-
-    <com.example.galleryapp.views.ToolbarView
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:start_icon="@drawable/ic_arrow_back"
-        app:start_icon_visibility="true"/>
-
-
-    <LinearLayout
+    <com.example.galleryapp.views.AuthorizationView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical"
-        android:orientation="vertical">
+        app:authorization_title="login"
+        android:id="@+id/authorization"
+        />
 
-        <TextView
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login"
-            style="@style/AuthorizationTitle"/>
-
-
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="email"
-            android:inputType="text"
-            android:background="@drawable/selector_edittext"
-            style="@style/EditTextStyle"
-            android:drawableStart="@drawable/ic_email"
-            />
-
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="password"
-            style="@style/EditTextStyle"
-            android:inputType="textPassword"
-            android:drawableStart="@drawable/ic_lock"
-            />
-
-        <com.example.galleryapp.views.ProgressButtonView
-            android:id="@+id/button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:button_title="login" />
-
-        <TextView
-            android:id="@+id/to_sign_up"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="or create account"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:layout_margin="10dp"/>
-
-    </LinearLayout>
-
-
-</LinearLayout>
+</FrameLayout>

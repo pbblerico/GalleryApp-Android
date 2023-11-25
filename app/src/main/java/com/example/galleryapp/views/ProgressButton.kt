@@ -8,6 +8,7 @@ import android.widget.FrameLayout
 import com.example.galleryapp.R
 import com.example.galleryapp.databinding.ViewProgressButtonBinding
 import com.example.galleryapp.utils.setSafeOnClickListener
+import com.google.android.material.button.MaterialButton
 
 class ProgressButtonView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -17,7 +18,8 @@ class ProgressButtonView @JvmOverloads constructor(
         ViewProgressButtonBinding.inflate(LayoutInflater.from(context), this)
 
     private var loading = false
-    var action: (() ->Unit)? =null
+    var action: (() ->Unit)? = null
+    val button: MaterialButton = binding.progressButton
 
     init {
         setAttrs(attrs, R.styleable.ProgressButtonView) {

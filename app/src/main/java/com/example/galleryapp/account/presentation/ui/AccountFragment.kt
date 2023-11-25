@@ -44,7 +44,7 @@ class AccountFragment : Fragment() {
         binding.folderAdapter.adapter = adapter
 
         val list = listOf(
-            Folder(0, "one", ""),
+            Folder(0, "one really long long title that I want to test the", ""),
             Folder(1, "two", ""),
             Folder(2, "four", ""),
             Folder(3, "three", ""),

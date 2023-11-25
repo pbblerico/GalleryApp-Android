@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.galleryapp.data.models.Folder
-import com.example.galleryapp.databinding.ViewFolderBinding
+import com.example.galleryapp.databinding.ItemFolderBinding
 
 class FolderAdapter: ListAdapter<Folder, FolderAdapter.FolderViewHolder>(FolderDiffUtils) {
     object FolderDiffUtils: DiffUtil.ItemCallback<Folder>() {
@@ -20,7 +20,7 @@ class FolderAdapter: ListAdapter<Folder, FolderAdapter.FolderViewHolder>(FolderD
         }
     }
 
-    inner class FolderViewHolder(private val binding: ViewFolderBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class FolderViewHolder(private val binding: ItemFolderBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Folder) {
             binding.folderTitle.text = item.name
 
@@ -32,7 +32,7 @@ class FolderAdapter: ListAdapter<Folder, FolderAdapter.FolderViewHolder>(FolderD
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FolderViewHolder {
         return FolderViewHolder(
-            ViewFolderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemFolderBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 
