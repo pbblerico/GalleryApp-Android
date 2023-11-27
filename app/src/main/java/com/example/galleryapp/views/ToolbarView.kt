@@ -21,6 +21,7 @@ class ToolbarView @JvmOverloads constructor(
     var startIconAction: (() -> Unit)? = null
     var trailingIconAction: (() -> Unit)? = null
 
+    //todo(add access to elements)
     init {
         setAttrs(attrs, R.styleable.ToolbarView) {
             binding.toolbarTitle.text = it.getString(R.styleable.ToolbarView_toolbar_title)

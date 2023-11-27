@@ -32,6 +32,13 @@ class MainActivity : AppCompatActivity() {
         bottomBarVisibility(nav)
     }
 
+    private fun changeAuth() {
+        val auth = sharedPref.getBoolean("auth", false)
+        with(sharedPref.edit()) {
+            putBoolean("auth", !auth)
+        }
+    }
+
 
 
     //todo change with enum

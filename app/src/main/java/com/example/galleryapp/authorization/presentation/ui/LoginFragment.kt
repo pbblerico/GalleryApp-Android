@@ -26,7 +26,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
             Navigation.findNavController(it).navigate(R.id.signUpFragment)
         }
 
-        binding.authorization.submitBtn.setSafeOnClickListener {
+        binding.authorization.submitBtn.action = {
             login()
         }
     }

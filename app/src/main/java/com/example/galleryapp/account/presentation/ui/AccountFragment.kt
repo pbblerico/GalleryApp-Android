@@ -33,7 +33,7 @@ class AccountFragment : Fragment() {
     ): View? {
         binding = FragmentAccountBinding.inflate(inflater, container, false)
 //        binding.toolBar.inflateMenu(R.menu.account_app_bar_logged_user)
-
+//        binding.toolbar.trailingIcon
 
         binding.toolbar.trailingIconAction = {
 //            Toast.makeText(requireContext(), "${binding.toolbar.scrollY}", Toast.LENGTH_SHORT).show()
