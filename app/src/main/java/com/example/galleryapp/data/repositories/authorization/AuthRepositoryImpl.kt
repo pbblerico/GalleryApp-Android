@@ -15,7 +15,9 @@ class AuthRepositoryImpl @Inject constructor(
        firebaseAuth.signInWithEmailAndPassword(email, password)
            .addOnCompleteListener { task ->
                if (task.isSuccessful) {
-                   Log.d("he",  "$currentUser")
+                   Log.d("he",  "hello ${currentUser?.getIdToken(true)}")
+               } else {
+                   Log.d("he", "erorr")
                }
            }
     }

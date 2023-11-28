@@ -16,7 +16,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
 
     override fun setUpViews() {
         binding.authorization.toolbar.startIconAction = {
-            Navigation.findNavController(binding.root).popBackStack()
+            viewModel.handleEvent(LoginScreenContract.LoginEvent.OnBackIconClick)
         }
 
         binding.authorization.toOtherOption.setSafeOnClickListener {
@@ -33,16 +33,23 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
         val password = binding.authorization.passwordET.text.toString().trim()
 
         viewModel.handleEvent(LoginScreenContract.LoginEvent.OnLoginButtonClick(email, password))
-//        Log.d("login_fragment", "hello")
-//        viewModel.login(email, password)
     }
 
     override fun observeView() {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.uiState.collect{state ->
+
+            }
+        }
+
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.effect.collect{effect ->
                 when(effect) {
                     is LoginScreenContract.LoginEffect.NavigateToSignUp -> {
                         Navigation.findNavController(binding.root).navigate(R.id.signUpFragment)
+                    }
+                    is LoginScreenContract.LoginEffect.NavigateBack -> {
+                        Navigation.findNavController(binding.root).popBackStack()
                     }
                 }
             }
@@ -50,36 +57,3 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
     }
 
 }
-
-//@AndroidEntryPoint
-//class LoginFragment : Fragment() {
-//    private lateinit var binding: FragmentLoginBinding
-//    private val viewModel: LoginViewModel by viewModels()
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//    }
-//
-//    override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        binding = FragmentLoginBinding.inflate(inflater, container, false)
-//
-//        binding.authorization.toolbar.startIconAction = {
-//            Navigation.findNavController(binding.root).popBackStack()
-//        }
-//
-//        binding.authorization.toOtherOption.setSafeOnClickListener {
-//            Navigation.findNavController(it).navigate(R.id.signUpFragment)
-//        }
-//
-//        return binding.root
-//    }
-//
-//    private fun login() {
-//        val email = binding.authorization.emailET.text.toString().trim()
-//        val password = binding.authorization.passwordET.text.toString().trim()
-//
-//        viewModel.login(email, password)
-//    }
-//}

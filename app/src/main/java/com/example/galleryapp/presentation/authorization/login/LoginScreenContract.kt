@@ -24,9 +24,11 @@ class LoginScreenContract {
     sealed class LoginEvent: UiEvent {
         data class OnLoginButtonClick(val email: String, val password: String): LoginEvent()
         object OnSignUpClick: LoginEvent()
+        object OnBackIconClick: LoginEvent()
     }
 
     sealed class LoginEffect: UiEffect {
         object NavigateToSignUp: LoginEffect()
+        object NavigateBack: LoginEffect()
     }
 }
