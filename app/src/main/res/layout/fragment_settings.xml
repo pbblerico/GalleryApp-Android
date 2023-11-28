@@ -3,15 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.authorization.signup.SignUpFragment">
+    tools:context=".presentation.settings.SettingsFragment">
 
-    <com.example.galleryapp.views.AuthorizationView
-        android:id="@+id/authorization"
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:show_nickname_input="true"
-        app:authorization_title="@string/sign_up"
-        />
+        android:text="@string/hello_blank_fragment" />
 
 </FrameLayout>

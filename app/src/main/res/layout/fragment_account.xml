@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".account.presentation.ui.AccountFragment">
+    tools:context=".presentation.account.AccountFragment">
 
     <com.example.galleryapp.views.ToolbarView
         android:id="@+id/toolbar"
