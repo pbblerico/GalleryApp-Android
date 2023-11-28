@@ -1,7 +1,7 @@
-package com.example.galleryapp.data.modules
+package com.example.galleryapp.authorization.di
 
+import com.example.galleryapp.authorization.domain.repositories.AuthRepository
 import com.example.galleryapp.authorization.domain.repositories.AuthRepositoryImpl
-import com.example.galleryapp.authorization.domain.repositories.AuthRepostitory
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
@@ -12,8 +12,8 @@ import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
 @Module
-object RepositoryModule {
+object AuthRepositoryModule {
     @Provides
     @Singleton
-    fun provideAuthRepository(firebaseAuth: FirebaseAuth): AuthRepostitory = AuthRepositoryImpl(firebaseAuth)
+    fun provideAuthRepository(firebaseAuth: FirebaseAuth): AuthRepository = AuthRepositoryImpl(firebaseAuth)
 }

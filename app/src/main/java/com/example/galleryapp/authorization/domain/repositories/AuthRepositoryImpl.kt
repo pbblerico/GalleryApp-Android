@@ -1,15 +1,13 @@
 package com.example.galleryapp.authorization.domain.repositories
 
 import android.util.Log
-import com.example.galleryapp.authorization.domain.repositories.AuthRepostitory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
-    private val firebaseAuth: FirebaseAuth,
-//    private val firebaseDatabase: FirebaseDatabase
-): AuthRepostitory {
+    private val firebaseAuth: FirebaseAuth
+): AuthRepository {
     override val currentUser: FirebaseUser?
         get() = firebaseAuth.currentUser
 
@@ -23,9 +21,9 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override suspend fun signup(
+        nickname: String,
         email: String,
-        password: String,
-        nickname: String
+        password: String
     ) {
 //       firebaseAuth.createUserWithEmailAndPassword(email, password)
 //           .addOnCompleteListener {task ->

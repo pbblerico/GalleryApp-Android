@@ -1,13 +1,16 @@
 package com.example.galleryapp.authorization.presentation.ui
 
 import android.util.Log
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.example.galleryapp.R
+import com.example.galleryapp.authorization.presentation.LoginScreenContract
 import com.example.galleryapp.authorization.presentation.viewModels.LoginViewModel
 import com.example.galleryapp.databinding.FragmentLoginBinding
 import com.example.galleryapp.shared.base.BaseFragment
 import com.example.galleryapp.utils.setSafeOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
 
 
 @AndroidEntryPoint
@@ -28,6 +31,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
 
         binding.authorization.submitBtn.action = {
             login()
+
         }
     }
 
@@ -35,11 +39,21 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
         val email = binding.authorization.emailET.text.toString().trim()
         val password = binding.authorization.passwordET.text.toString().trim()
 
-        Log.d("login_fragment", "hello")
+        viewModel.handleEvent(LoginScreenContract.LoginEvent.OnLoginButtonClick(email, password))
+//        Log.d("login_fragment", "hello")
 //        viewModel.login(email, password)
     }
 
     override fun observeView() {
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.effect.collect{effect ->
+                when(effect) {
+                    is LoginScreenContract.LoginEffect.Login -> {
+                        Log.d("login_fragment", "try to log")
+                    }
+                }
+            }
+        }
     }
 
 }
