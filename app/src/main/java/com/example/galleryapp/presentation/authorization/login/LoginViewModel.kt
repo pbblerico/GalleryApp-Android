@@ -2,7 +2,8 @@ package com.example.galleryapp.presentation.authorization.login
 
 import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.data.useCases.authorization.LoginUseCase
-import com.example.galleryapp.shared.base.BaseViewModel
+import com.example.galleryapp.presentation.base.BaseViewModel
+import com.example.galleryapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -11,32 +12,52 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase
-): BaseViewModel<LoginScreenContract.State, LoginScreenContract.LoginEvent, LoginScreenContract.LoginEffect>() {
-    override fun createInitialState(): LoginScreenContract.State {
-        return LoginScreenContract.State(LoginScreenContract.LoginState.Idle)
+) : BaseViewModel<AuthScreenContract.State, AuthScreenContract.AuthEvent, AuthScreenContract.AuthEffect>() {
+    override fun createInitialState(): AuthScreenContract.State {
+        return AuthScreenContract.State(AuthScreenContract.AuthState.Idle)
     }
 
-    override fun handleEvent(event: LoginScreenContract.LoginEvent) {
-        when(event) {
-            is LoginScreenContract.LoginEvent.OnLoginButtonClick -> {
+    override fun handleEvent(event: AuthScreenContract.AuthEvent) {
+        when (event) {
+            is AuthScreenContract.AuthEvent.OnAuthButtonClick -> {
                 login(event.email, event.password)
             }
-            is LoginScreenContract.LoginEvent.OnSignUpClick -> {
-                setEffect { LoginScreenContract.LoginEffect.NavigateToSignUp }
+
+            is AuthScreenContract.AuthEvent.OnSignUpClick -> {
+                setEffect { AuthScreenContract.AuthEffect.NavigateToAnotherAuthMethod }
             }
-            is LoginScreenContract.LoginEvent.OnBackIconClick -> {
-                setEffect { LoginScreenContract.LoginEffect.NavigateBack }
+
+            is AuthScreenContract.AuthEvent.OnBackIconClick -> {
+                setEffect { AuthScreenContract.AuthEffect.NavigateBack }
             }
         }
     }
 
     private fun login(email: String, password: String) {
-        setState {
-            copy(LoginScreenContract.LoginState.Loading)
-        }
-        viewModelScope.launch {
-            loginUseCase.execute(email, password)
+        loginUseCase.getCurrentUser()?.let { user ->
+            setState { copy(AuthScreenContract.AuthState.Success(user.uid)) }
+        } ?: {
+            setState {
+                copy(AuthScreenContract.AuthState.Loading)
+            }
+            viewModelScope.launch {
+                when (val result = loginUseCase.execute(email, password)) {
+                    is Resource.Success -> {
+                        val uid = result.data.user?.uid
+                        uid?.let {
+                            setState { copy(AuthScreenContract.AuthState.Success(it)) }
+                        }
+                    }
 
+                    is Resource.Error -> {
+                        setEffect {
+                            AuthScreenContract.AuthEffect.ShowToast(
+                                result.message ?: "Couldn't authorize"
+                            )
+                        }
+                    }
+                }
+            }
         }
     }
 

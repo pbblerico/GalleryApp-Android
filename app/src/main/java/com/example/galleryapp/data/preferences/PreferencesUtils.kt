@@ -13,6 +13,10 @@ class PreferencesUtils(private var preferences: SharedPreferences) {
         return preferences.getBoolean(key.name, false)
     }
 
+    fun remove(key: Preferences) {
+        preferences.edit().remove(key.name).apply()
+    }
+
     fun saveString(key: Preferences, value: String) {
         val editor = preferences.edit()
         editor.putString(key.name, value)

@@ -1,5 +1,7 @@
 package com.example.galleryapp.presentation.authorization.login
 
+import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.example.galleryapp.R
@@ -16,11 +18,11 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
 
     override fun setUpViews() {
         binding.authorization.toolbar.startIconAction = {
-            viewModel.handleEvent(LoginScreenContract.LoginEvent.OnBackIconClick)
+            viewModel.handleEvent(AuthScreenContract.AuthEvent.OnBackIconClick)
         }
 
         binding.authorization.toOtherOption.setSafeOnClickListener {
-            viewModel.handleEvent(LoginScreenContract.LoginEvent.OnSignUpClick)
+            viewModel.handleEvent(AuthScreenContract.AuthEvent.OnSignUpClick)
         }
 
         binding.authorization.submitBtn.action = {
@@ -32,24 +34,32 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
         val email = binding.authorization.emailET.text.toString().trim()
         val password = binding.authorization.passwordET.text.toString().trim()
 
-        viewModel.handleEvent(LoginScreenContract.LoginEvent.OnLoginButtonClick(email, password))
+        viewModel.handleEvent(AuthScreenContract.AuthEvent.OnAuthButtonClick(email, password))
     }
 
-    override fun observeView() {
+    override fun observeState() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect{state ->
-
+                when(state.authState) {
+                    is AuthScreenContract.AuthState.Success -> {
+                        Log.d("login_state", "hello")
+                    }
+                    else -> {}
+                }
             }
         }
 
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.effect.collect{effect ->
                 when(effect) {
-                    is LoginScreenContract.LoginEffect.NavigateToSignUp -> {
+                    is AuthScreenContract.AuthEffect.NavigateToAnotherAuthMethod -> {
                         Navigation.findNavController(binding.root).navigate(R.id.signUpFragment)
                     }
-                    is LoginScreenContract.LoginEffect.NavigateBack -> {
+                    is AuthScreenContract.AuthEffect.NavigateBack -> {
                         Navigation.findNavController(binding.root).popBackStack()
+                    }
+                    is AuthScreenContract.AuthEffect.ShowToast -> {
+                        Toast.makeText(requireContext(), effect.message, Toast.LENGTH_SHORT).show()
                     }
                 }
             }

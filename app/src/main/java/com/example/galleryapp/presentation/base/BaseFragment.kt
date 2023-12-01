@@ -42,11 +42,10 @@ abstract class BaseFragment<VB: ViewBinding, VM: ViewModel>(@LayoutRes protected
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpViews()
-        observeView()
+        observeState()
     }
 
     abstract fun setUpViews()
-    abstract fun observeView()
-
+    abstract fun observeState()
 
 }

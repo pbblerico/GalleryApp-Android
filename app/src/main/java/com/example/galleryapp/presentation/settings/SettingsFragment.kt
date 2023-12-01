@@ -12,7 +12,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding, SettingsViewModel
         TODO("Not yet implemented")
     }
 
-    override fun observeView() {
-        TODO("Not yet implemented")
+    override fun observeState() {
+
     }
 }
