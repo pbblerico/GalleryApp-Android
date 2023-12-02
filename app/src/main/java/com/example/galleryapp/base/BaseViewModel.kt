@@ -1,4 +1,4 @@
-package com.example.galleryapp.presentation.base
+package com.example.galleryapp.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

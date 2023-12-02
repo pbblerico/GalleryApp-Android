@@ -1,6 +1,5 @@
 package com.example.galleryapp.account.presentation.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -10,6 +9,8 @@ import com.example.galleryapp.data.models.Folder
 import com.example.galleryapp.databinding.ItemFolderBinding
 
 class FolderAdapter: ListAdapter<Folder, FolderAdapter.FolderViewHolder>(FolderDiffUtils) {
+
+    var click: (() -> Unit)? = null
     object FolderDiffUtils: DiffUtil.ItemCallback<Folder>() {
         override fun areItemsTheSame(oldItem: Folder, newItem: Folder): Boolean {
             return oldItem.id == newItem.id
@@ -25,7 +26,7 @@ class FolderAdapter: ListAdapter<Folder, FolderAdapter.FolderViewHolder>(FolderD
             binding.folderTitle.text = item.name
 
             itemView.setOnClickListener {
-                Log.d("adapter", "hello")
+                click?.invoke()
             }
         }
     }

@@ -8,7 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.example.galleryapp.R
 import com.example.galleryapp.databinding.FragmentLoginBinding
-import com.example.galleryapp.presentation.base.BaseFragment
+import com.example.galleryapp.base.BaseFragment
 import com.example.galleryapp.utils.setSafeOnClickListener
 import com.google.firebase.Firebase
 import com.google.firebase.storage.storage

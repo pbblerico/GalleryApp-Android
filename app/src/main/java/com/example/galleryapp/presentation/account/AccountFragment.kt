@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.galleryapp.R
 import com.example.galleryapp.account.presentation.adapter.FolderAdapter
 import com.example.galleryapp.data.models.Folder
@@ -50,6 +49,9 @@ class AccountFragment : Fragment() {
             Folder(3, "three", ""),
         )
         adapter.submitList(list)
+        adapter.click = {
+            Navigation.findNavController(binding.root).navigate(R.id.folderFragment)
+        }
 
 //        binding.toolbar.setSafeOnClickListener {
 //            if

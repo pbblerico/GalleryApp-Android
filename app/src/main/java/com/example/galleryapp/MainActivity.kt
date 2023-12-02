@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
 
 
 
+
+
     //todo change with enum
     private fun bottomBarVisibility(nav: NavController) {
         nav.addOnDestinationChangedListener {_, destination, _ ->

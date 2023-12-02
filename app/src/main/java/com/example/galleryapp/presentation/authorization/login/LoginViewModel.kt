@@ -2,7 +2,7 @@ package com.example.galleryapp.presentation.authorization.login
 
 import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.data.useCases.authorization.LoginUseCase
-import com.example.galleryapp.presentation.base.BaseViewModel
+import com.example.galleryapp.base.BaseViewModel
 import com.example.galleryapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

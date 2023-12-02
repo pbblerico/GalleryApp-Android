@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".FolderFragment"
-    android:orientation="vertical">
+    tools:context=".FolderFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <com.example.galleryapp.views.ToolbarView
         android:layout_width="match_parent"
@@ -14,16 +18,28 @@
         app:start_icon="@drawable/ic_arrow_back"
         app:start_icon_visibility="true"/>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/image_adapter"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_add"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"/>
+
 
     <!--    <androidx.recyclerview.widget.RecyclerView-->
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="wrap_content"/>-->
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
-        />
 
 
 
@@ -31,4 +47,5 @@
 
 
 
-</LinearLayout>
+
+</RelativeLayout>

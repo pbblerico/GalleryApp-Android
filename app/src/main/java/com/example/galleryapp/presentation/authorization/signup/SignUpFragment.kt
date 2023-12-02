@@ -7,7 +7,7 @@ import androidx.navigation.Navigation
 import com.example.galleryapp.R
 import com.example.galleryapp.databinding.FragmentSignUpBinding
 import com.example.galleryapp.presentation.authorization.login.AuthScreenContract
-import com.example.galleryapp.presentation.base.BaseFragment
+import com.example.galleryapp.base.BaseFragment
 import com.example.galleryapp.utils.setSafeOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
