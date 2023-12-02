@@ -5,6 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".presentation.home.HomeFragment">
 
-    <include layout="@layout/item_not_found"/>
+<!--    <include layout="@layout/item_not_found"/>-->
 
 </FrameLayout>
