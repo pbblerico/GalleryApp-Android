@@ -1,5 +1,7 @@
 package com.example.galleryapp.presentation.authorization.login
 
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -8,7 +10,10 @@ import com.example.galleryapp.R
 import com.example.galleryapp.databinding.FragmentLoginBinding
 import com.example.galleryapp.presentation.base.BaseFragment
 import com.example.galleryapp.utils.setSafeOnClickListener
+import com.google.firebase.Firebase
+import com.google.firebase.storage.storage
 import dagger.hilt.android.AndroidEntryPoint
+import java.io.ByteArrayOutputStream
 
 
 @AndroidEntryPoint
@@ -43,6 +48,24 @@ class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout
                 when(state.authState) {
                     is AuthScreenContract.AuthState.Success -> {
                         Log.d("login_state", "hello")
+
+                        val storageRef = Firebase.storage.reference
+
+                        val file = storageRef.child("users/${viewModel.loginUseCase.getCurrentUser()?.uid}/images/public/first.png")
+                        val bitmap = (binding.image.drawable as BitmapDrawable).bitmap
+                        val baos = ByteArrayOutputStream()
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+                        val data = baos.toByteArray()
+
+                        var uploadTask = file.putBytes(data)
+                        uploadTask.addOnFailureListener {
+                            // Handle unsuccessful uploads
+                            Log.d("image load", it.message ?: "error")
+                        }.addOnSuccessListener { taskSnapshot ->
+                            // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
+                            // ...
+                            Toast.makeText(requireContext(), "Added", Toast.LENGTH_SHORT).show()
+                        }
                     }
                     else -> {}
                 }

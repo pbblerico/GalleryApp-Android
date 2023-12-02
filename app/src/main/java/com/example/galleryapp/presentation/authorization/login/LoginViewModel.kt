@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val loginUseCase: LoginUseCase
+    val loginUseCase: LoginUseCase
 ) : BaseViewModel<AuthScreenContract.State, AuthScreenContract.AuthEvent, AuthScreenContract.AuthEffect>() {
     override fun createInitialState(): AuthScreenContract.State {
         return AuthScreenContract.State(AuthScreenContract.AuthState.Idle)

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FolderFragment"
+    android:orientation="vertical">
+
+    <com.example.galleryapp.views.ToolbarView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toolbar_title="folder"
+        app:start_icon="@drawable/ic_arrow_back"
+        app:start_icon_visibility="true"/>
+
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"/>-->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+
+
+
+
+
+
+</LinearLayout>
