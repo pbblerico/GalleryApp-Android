@@ -28,7 +28,7 @@ class HomeFragment: Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        binding.rv.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.rv.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.rv.adapter = pagingAdapter
 
         viewModel.data.observe(viewLifecycleOwner) {

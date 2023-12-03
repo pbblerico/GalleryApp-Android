@@ -102,4 +102,7 @@ dependencies {
     //Lingver
     implementation("com.github.YarikSOffice:lingver:1.3.0")
 
+
+    //swiperefresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }

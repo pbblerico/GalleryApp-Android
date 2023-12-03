@@ -28,7 +28,7 @@ object NetworkModule {
     @LoggingInterceptor
     @Provides
     fun provideLoggingInterceptor(): Interceptor =
-        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
+        HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
     @Provides
     fun provideHeaderInterceptor(@PictureToken token: String) = Interceptor { chain ->

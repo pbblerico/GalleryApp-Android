@@ -16,9 +16,7 @@ class TestViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val result = repo.getCuratedPictures()
-                result?.photos?.forEach {
-                    Log.d("log", "url: ${it.url.toString()}")
-                }
+
             } catch (e: Exception) {
                 Log.e("error", e.message ?: "unknown error")
             }

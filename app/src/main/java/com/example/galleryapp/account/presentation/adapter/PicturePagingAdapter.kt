@@ -7,6 +7,8 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import coil.size.Scale
+import com.example.galleryapp.R
 import com.example.galleryapp.data.models.Photo
 import com.example.galleryapp.databinding.ItemImageBinding
 
@@ -16,14 +18,18 @@ class PicturePagingAdapter :
     class PictureViewHolder(private val binding: ItemImageBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Photo) {
-            item?.url?.let { Log.d("item", it) }
+            item?.urlSource?.let { Log.d("item", it.original.toString()) }
 
-            item.url?.let {
-                val url = it.substring(0, it.length - 1) + ".jpeg"
-                Log.d("item", url)
-                binding.image.load(url)
+            item.urlSource?.let {
+//                val url = it.substring(0, it.length - 1) + ".jpeg"
+//                Log.d("item", url)
+                binding.image.load(it.original)
+                {
+                    crossfade(true)
+                    placeholder(R.drawable.anonymous)
+                    scale(Scale.FILL)
+                }
             }
-
         }
     }
 

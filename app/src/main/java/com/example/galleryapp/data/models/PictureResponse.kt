@@ -13,8 +13,13 @@ data class PictureResponse(
 
 data class Photo(
     val id: Int? = null,
-    val url: String? = null,
+    @SerializedName("src")
+    val urlSource: UrlSource? = null,
     val photographer: String? = null,
     @SerializedName("photographer_url")
     val photograperUrl: String? = null,
+)
+
+data class UrlSource(
+    val original: String? = null
 )
