@@ -1,6 +1,5 @@
 package com.example.galleryapp.data.repositories.authorization
 
-import com.example.galleryapp.utils.Resource
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -16,12 +15,13 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun login(
         email: String,
         password: String
-    ): Resource<AuthResult> {
+    ): AuthResult? {
         val response = firebaseAuth.signInWithEmailAndPassword(email, password)
         return if (response.isSuccessful) {
-            Resource.Success(response.result)
-        } else
-            Resource.Error(response.exception?.message ?: "Unknown error")
+            response.result
+        } else {
+            throw Exception(response.exception)
+        }
     }
 
     private fun getToken() {
@@ -32,12 +32,12 @@ class AuthRepositoryImpl @Inject constructor(
         nickname: String,
         email: String,
         password: String
-    ): Resource<AuthResult> {
+    ): AuthResult? {
         val response = firebaseAuth.createUserWithEmailAndPassword(email, password)
         return if(response.isSuccessful) {
-            Resource.Success(response.result)
+            response.result
         } else {
-            Resource.Error(response.exception?.message ?: "Unknown error")
+            throw Exception(response.exception)
         }
     }
 

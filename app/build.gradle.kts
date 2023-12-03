@@ -94,4 +94,12 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.9.1")
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
+
+    //paging3
+    implementation("androidx.paging:paging-runtime:3.1.1")
+
+
+    //Lingver
+    implementation("com.github.YarikSOffice:lingver:1.3.0")
+
 }

@@ -1,11 +1,8 @@
 package com.example.galleryapp.presentation.authorization.login
 
-import androidx.lifecycle.viewModelScope
-import com.example.galleryapp.data.useCases.authorization.LoginUseCase
 import com.example.galleryapp.base.BaseViewModel
-import com.example.galleryapp.utils.Resource
+import com.example.galleryapp.data.useCases.authorization.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -34,31 +31,24 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun login(email: String, password: String) {
-        loginUseCase.getCurrentUser()?.let { user ->
-            setState { copy(AuthScreenContract.AuthState.Success(user.uid)) }
-        } ?: {
+//        loginUseCase.getCurrentUser()?.let { user ->
+//            setState { copy(AuthScreenContract.AuthState.Success(u)) }
+//        } ?: {
             setState {
                 copy(AuthScreenContract.AuthState.Loading)
             }
-            viewModelScope.launch {
-                when (val result = loginUseCase.execute(email, password)) {
-                    is Resource.Success -> {
-                        val uid = result.data.user?.uid
-                        uid?.let {
-                            setState { copy(AuthScreenContract.AuthState.Success(it)) }
-                        }
-                    }
-
-                    is Resource.Error -> {
-                        setEffect {
-                            AuthScreenContract.AuthEffect.ShowToast(
-                                result.message ?: "Couldn't authorize"
-                            )
-                        }
-                    }
+            launch(
+                request = {
+                    loginUseCase.execute(email, password)
+                },
+                onSuccess = {result ->
+                    setState { copy(AuthScreenContract.AuthState.Success(result?.user?.uid)) }
+                },
+                onError = {e ->
+                    setState { copy(AuthScreenContract.AuthState.Failure(e)) }
                 }
-            }
-        }
+            )
+//        }
     }
 
 }

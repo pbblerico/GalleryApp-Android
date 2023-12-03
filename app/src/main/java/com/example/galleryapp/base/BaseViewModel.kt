@@ -1,5 +1,6 @@
 package com.example.galleryapp.base
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.shared.base.UiEffect
@@ -36,26 +37,19 @@ abstract class BaseViewModel<State : UiState, Event : UiEvent, Effect : UiEffect
 
     fun <T> launch(
         request: suspend () -> T,
-        onSuccess: (T) -> Unit = { },
-        loadingState: State? = null,
-        exceptionState: State? = null
+        onSuccess: (T?) -> Unit = { },
+        onError: ((String?) -> Unit) ? = null,
+        onFinally: (() -> Unit)? = null
     ) {
         viewModelScope.launch {
             try {
-                loadingState?.let {
-                    setState { it}
-                }
                 val response = request.invoke()
                 onSuccess.invoke(response)
             } catch (e: Exception) {
-                exceptionState?.let {
-
-                }
-//                _exceptionLiveData.postValue(e.message)
-//                Log.e(">>>", e.message.orEmpty())
+                onError?.invoke(e.message.orEmpty())
+                Log.e(">>>", e.message.orEmpty())
             } finally {
-
-//                _loadingLiveData.postValue(false)
+                onFinally?.invoke()
             }
         }
     }
@@ -66,7 +60,6 @@ abstract class BaseViewModel<State : UiState, Event : UiEvent, Effect : UiEffect
     }
 
     protected fun setState(reduce: State.() -> State) {
-        //check
         val newState = uiState.value.reduce()
         _uiState.value = newState
     }

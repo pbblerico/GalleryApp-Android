@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.galleryapp.TestViewModel
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.galleryapp.account.presentation.adapter.PicturePagingAdapter
 import com.example.galleryapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,7 +15,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class HomeFragment: Fragment() {
     private lateinit var binding: FragmentHomeBinding
-    private val viewModel: TestViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels()
+    private val pagingAdapter = PicturePagingAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +28,13 @@ class HomeFragment: Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
-        viewModel.getPictures()
+        binding.rv.layoutManager = GridLayoutManager(requireContext(), 3)
+        binding.rv.adapter = pagingAdapter
+
+        viewModel.data.observe(viewLifecycleOwner) {
+            pagingAdapter.submitData(lifecycle, it)
+        }
+
 
 //        lifecycleScope.launch {
 //            Log.d("ge;", "sdjfsaldf;sadflas")

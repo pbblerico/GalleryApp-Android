@@ -1,10 +1,10 @@
 package com.example.galleryapp.presentation.authorization.signup
 
+import android.util.Log
 import androidx.lifecycle.viewModelScope
+import com.example.galleryapp.base.BaseViewModel
 import com.example.galleryapp.data.useCases.authorization.SignUpUseCase
 import com.example.galleryapp.presentation.authorization.login.AuthScreenContract
-import com.example.galleryapp.base.BaseViewModel
-import com.example.galleryapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
-    val signUpUseCase: SignUpUseCase
+    private val signUpUseCase: SignUpUseCase
 ) :
     BaseViewModel<AuthScreenContract.State, AuthScreenContract.AuthEvent, AuthScreenContract.AuthEffect>() {
     override fun createInitialState(): AuthScreenContract.State {
@@ -40,20 +40,14 @@ class SignUpViewModel @Inject constructor(
     private fun signUp(nickname: String, email: String, password: String) {
         setState { copy(AuthScreenContract.AuthState.Loading) }
         viewModelScope.launch {
-            when(val result = signUpUseCase.execute(nickname, email, password)) {
-                is Resource.Success -> {
-                    val uid = result.data.user?.uid
-                    uid?.let {
-                        setState { copy(AuthScreenContract.AuthState.Success(it)) }
-                    }
+            try {
+                val result = signUpUseCase.execute(nickname, email, password)
+                val uid = result?.user?.uid
+                uid?.let {
+                    setState { copy(AuthScreenContract.AuthState.Success(it)) }
                 }
-                is Resource.Error -> {
-                    setEffect {
-                        AuthScreenContract.AuthEffect.ShowToast(
-                            result.message ?: "Couldn't authorize"
-                        )
-                    }
-                }
+            } catch (e: Exception) {
+                Log.e("auth_exception", e.message ?: "unknown error")
             }
         }
     }
