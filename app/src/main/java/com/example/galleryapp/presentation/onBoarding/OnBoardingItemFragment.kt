@@ -1,10 +1,11 @@
-package com.example.galleryapp
+package com.example.galleryapp.presentation.onBoarding
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.galleryapp.utils.enums.OnBoardingElement
 import com.example.galleryapp.databinding.FragmentOnBoardingItemBinding
 
 class OnBoardingItemFragment(private val onBoardingElement: OnBoardingElement?): Fragment() {

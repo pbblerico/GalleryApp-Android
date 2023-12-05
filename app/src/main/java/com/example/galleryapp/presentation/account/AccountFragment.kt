@@ -34,10 +34,10 @@ class AccountFragment : Fragment() {
 //        binding.toolBar.inflateMenu(R.menu.account_app_bar_logged_user)
 //        binding.toolbar.trailingIcon
 
-        binding.toolbar.trailingIconAction = {
-//            Toast.makeText(requireContext(), "${binding.toolbar.scrollY}", Toast.LENGTH_SHORT).show()
-            Navigation.findNavController(binding.root).navigate(R.id.loginFragment)
-        }
+//        binding.toolbar.trailingIconAction = {
+////            Toast.makeText(requireContext(), "${binding.toolbar.scrollY}", Toast.LENGTH_SHORT).show()
+//            Navigation.findNavController(binding.root).navigate(R.id.loginFragment)
+//        }
 
         binding.folderAdapter.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.folderAdapter.adapter = adapter

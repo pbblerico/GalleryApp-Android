@@ -10,6 +10,8 @@ import com.example.galleryapp.databinding.ItemImageBinding
 
 class ImageAdapter: ListAdapter<Image, ImageAdapter.ImageViewHolder>(ImageDiffUtils) {
     //todo base adapter realization
+
+    var click: (() -> Unit)? = null
     object ImageDiffUtils: DiffUtil.ItemCallback<Image>() {
         override fun areItemsTheSame(oldItem: Image, newItem: Image): Boolean {
             return oldItem.id == newItem.id
@@ -22,7 +24,9 @@ class ImageAdapter: ListAdapter<Image, ImageAdapter.ImageViewHolder>(ImageDiffUt
 
     inner class ImageViewHolder(private val binding: ItemImageBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Image) {
-
+            itemView.setOnClickListener {
+                click?.invoke()
+            }
         }
     }
 

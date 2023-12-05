@@ -1,7 +1,8 @@
-package com.example.galleryapp
+package com.example.galleryapp.utils.enums
 
 import androidx.annotation.RawRes
 import androidx.annotation.StringRes
+import com.example.galleryapp.R
 
 enum class OnBoardingElement(
     @StringRes val text: Int,

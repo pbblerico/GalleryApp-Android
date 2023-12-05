@@ -13,9 +13,9 @@
         android:id="@+id/accountFragment"
         android:icon="@drawable/ic_account"
         android:title="@string/account_bottom_nav_text" />
-<!--    <item-->
-<!--        android:id="@+id/settingsFragment"-->
-<!--        android:icon="@drawable/ic_settings"-->
-<!--        android:title="@string/settings"/>-->
+    <item
+        android:id="@+id/settingsFragment"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/settings"/>
 
 </menu>

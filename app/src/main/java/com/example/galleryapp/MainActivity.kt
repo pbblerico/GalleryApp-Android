@@ -9,11 +9,12 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.galleryapp.databinding.ActivityMainBinding
+import com.example.galleryapp.utils.enums.Destination
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class MainActivity: AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref: SharedPreferences
 
@@ -41,19 +42,15 @@ class MainActivity: AppCompatActivity() {
         }
     }
 
-
-
-
-
-    //todo change with enum
     private fun bottomBarVisibility(nav: NavController) {
-        nav.addOnDestinationChangedListener {_, destination, _ ->
-            when(destination.id) {
-                R.id.searchFragment,
-                R.id.homeFragment,
-                R.id.accountFragment -> binding.bottomNavigation.visibility = View.VISIBLE
-                else -> binding.bottomNavigation.visibility = View.GONE
-            }
+        val authorized = false
+        //todo hide elements of bottom bar
+        binding.bottomNavigation.menu.findItem(Destination.ACCOUNT.fragmentId).isVisible = !authorized
+
+        nav.addOnDestinationChangedListener { _, destination, _ ->
+            if (Destination.values().map { it.fragmentId }
+                    .contains(destination.id)) binding.bottomNavigation.visibility = View.VISIBLE
+            else binding.bottomNavigation.visibility = View.GONE
         }
     }
 

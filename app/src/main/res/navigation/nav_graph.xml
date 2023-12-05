@@ -61,6 +61,11 @@
         tools:layout="@layout/fragment_settings" />
     <fragment
         android:id="@+id/onBoardingFragment"
-        android:name="com.example.galleryapp.OnBoardingFragment"
+        android:name="com.example.galleryapp.presentation.onBoarding.OnBoardingFragment"
         android:label="OnBoardingFragment" />
+    <fragment
+        android:id="@+id/imageFragment"
+        android:name="com.example.galleryapp.ImageFragment"
+        android:label="fragment_image"
+        tools:layout="@layout/fragment_image" />
 </navigation>

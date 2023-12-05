@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.galleryapp.account.presentation.adapter.ImageAdapter
 import com.example.galleryapp.data.models.Image
@@ -40,6 +41,9 @@ class FolderFragment : Fragment() {
             Image(1, "asdsfsdfs"),
         )
         adapter.submitList(list)
+        adapter.click = {
+            Navigation.findNavController(binding.root).navigate(R.id.imageFragment)
+        }
 
         return binding.root
     }

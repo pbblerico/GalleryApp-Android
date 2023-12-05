@@ -1,4 +1,4 @@
-package com.example.galleryapp
+package com.example.galleryapp.presentation.onBoarding
 
 import android.os.Bundle
 import android.util.Log
@@ -9,8 +9,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.viewpager2.widget.ViewPager2
+import com.example.galleryapp.R
 import com.example.galleryapp.account.presentation.adapter.ViewPagerAdapter
 import com.example.galleryapp.databinding.FragmentOnBoardingBinding
+import com.example.galleryapp.utils.enums.OnBoardingElement
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -49,6 +51,7 @@ class OnBoardingFragment : Fragment() {
                 binding.viewPager.setCurrentItem(binding.viewPager.currentItem + 1, true)
             } else {
                 Navigation.findNavController(it).navigate(R.id.homeFragment)
+
             }
         }
         binding.previousButton.setOnClickListener {
