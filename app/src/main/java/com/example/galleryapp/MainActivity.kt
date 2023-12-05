@@ -10,6 +10,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.galleryapp.databinding.ActivityMainBinding
 import com.example.galleryapp.utils.enums.Destination
+import com.example.galleryapp.utils.enums.MenuItems
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -29,28 +30,28 @@ class MainActivity : AppCompatActivity() {
 
         sharedPref = this.getPreferences(Context.MODE_PRIVATE) ?: return
 
+
         val nav = findNavController(R.id.nav_host_fragment)
         binding.bottomNavigation.setupWithNavController(nav)
 
         bottomBarVisibility(nav)
     }
 
-    private fun changeAuth() {
-        val auth = sharedPref.getBoolean("auth", false)
-        with(sharedPref.edit()) {
-            putBoolean("auth", !auth)
-        }
-    }
-
     private fun bottomBarVisibility(nav: NavController) {
         val authorized = false
         //todo hide elements of bottom bar
-        binding.bottomNavigation.menu.findItem(Destination.ACCOUNT.fragmentId).isVisible = !authorized
+        binding.bottomNavigation.menu.findItem(Destination.ACCOUNT.fragmentId).isVisible =
+            !authorized
 
         nav.addOnDestinationChangedListener { _, destination, _ ->
-            if (Destination.values().map { it.fragmentId }
-                    .contains(destination.id)) binding.bottomNavigation.visibility = View.VISIBLE
-            else binding.bottomNavigation.visibility = View.GONE
+            if (MenuItems.values()
+                    .map { it.fragmentId }
+                    .contains(destination.id)
+            ) {
+                binding.bottomNavigation.visibility = View.VISIBLE
+            } else {
+                binding.bottomNavigation.visibility = View.GONE
+            }
         }
     }
 

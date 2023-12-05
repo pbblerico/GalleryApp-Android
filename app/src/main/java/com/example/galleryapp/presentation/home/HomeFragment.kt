@@ -1,32 +1,21 @@
 package com.example.galleryapp.presentation.home
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.galleryapp.R
 import com.example.galleryapp.account.presentation.adapter.PicturePagingAdapter
+import com.example.galleryapp.base.BaseFragment
 import com.example.galleryapp.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class HomeFragment: Fragment() {
-    private lateinit var binding: FragmentHomeBinding
+class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by viewModels()
     private val pagingAdapter = PicturePagingAdapter()
+    override fun getViewBinding(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
+    override fun setUpViews() {
 
         binding.rv.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.rv.adapter = pagingAdapter
@@ -34,22 +23,9 @@ class HomeFragment: Fragment() {
         viewModel.data.observe(viewLifecycleOwner) {
             pagingAdapter.submitData(lifecycle, it)
         }
+    }
 
-
-//        lifecycleScope.launch {
-//            Log.d("ge;", "sdjfsaldf;sadflas")
-//        }
-//        lifecycleScope.launch {
-//            try {
-//                val result = api.getCuratedPhotos().body()
-//                result?.photos?.forEach {
-//                    Log.d("request", it.url.toString())
-//                }
-//            } catch (e: Exception) {
-//                Log.d("error", e.message ?: "errrorrrrr")
-//            }
-//        }
-
-        return binding.root
+    override fun observeState() {
+        TODO("Not yet implemented")
     }
 }

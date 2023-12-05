@@ -51,7 +51,7 @@
         tools:layout="@layout/fragment_sign_up" />
     <fragment
         android:id="@+id/folderFragment"
-        android:name="com.example.galleryapp.FolderFragment"
+        android:name="com.example.galleryapp.presentation.folder.FolderFragment"
         android:label="fragment_folder"
         tools:layout="@layout/fragment_folder" />
     <fragment
@@ -65,7 +65,7 @@
         android:label="OnBoardingFragment" />
     <fragment
         android:id="@+id/imageFragment"
-        android:name="com.example.galleryapp.ImageFragment"
+        android:name="com.example.galleryapp.presentation.image.ImageFragment"
         android:label="fragment_image"
         tools:layout="@layout/fragment_image" />
 </navigation>

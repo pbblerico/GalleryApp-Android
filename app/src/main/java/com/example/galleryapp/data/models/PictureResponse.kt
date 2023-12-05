@@ -16,10 +16,8 @@ data class Photo(
     @SerializedName("src")
     val urlSource: UrlSource? = null,
     val photographer: String? = null,
-    @SerializedName("photographer_url")
-    val photograperUrl: String? = null,
 )
 
 data class UrlSource(
-    val original: String? = null
+    val original: String? = null,
 )

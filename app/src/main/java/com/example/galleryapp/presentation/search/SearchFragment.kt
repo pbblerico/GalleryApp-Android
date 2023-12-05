@@ -1,24 +1,15 @@
 package com.example.galleryapp.presentation.search
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.example.galleryapp.R
+import com.example.galleryapp.base.BaseFragment
+import com.example.galleryapp.databinding.FragmentSearchBinding
 
-class SearchFragment : Fragment() {
+class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
+    override fun getViewBinding(): FragmentSearchBinding = FragmentSearchBinding.inflate(layoutInflater)
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun setUpViews() {
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_search, container, false)
+    override fun observeState() {
     }
 }

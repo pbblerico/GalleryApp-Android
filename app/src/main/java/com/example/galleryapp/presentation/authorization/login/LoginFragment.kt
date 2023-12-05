@@ -4,11 +4,12 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.util.Log
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import com.example.galleryapp.R
-import com.example.galleryapp.databinding.FragmentLoginBinding
 import com.example.galleryapp.base.BaseFragment
+import com.example.galleryapp.databinding.FragmentLoginBinding
 import com.example.galleryapp.utils.setSafeOnClickListener
 import com.google.firebase.Firebase
 import com.google.firebase.storage.storage
@@ -17,9 +18,10 @@ import java.io.ByteArrayOutputStream
 
 
 @AndroidEntryPoint
-class LoginFragment: BaseFragment<FragmentLoginBinding, LoginViewModel>(R.layout.fragment_login) {
+class LoginFragment: BaseFragment<FragmentLoginBinding>(R.layout.fragment_login) {
+
+    private val viewModel: LoginViewModel by viewModels()
     override fun getViewBinding(): FragmentLoginBinding = FragmentLoginBinding.inflate(layoutInflater)
-    override fun getViewModelClass(): Class<LoginViewModel> = LoginViewModel::class.java
 
     override fun setUpViews() {
         binding.authorization.toolbar.startIconAction = {
