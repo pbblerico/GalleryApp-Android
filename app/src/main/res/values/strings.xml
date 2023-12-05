@@ -16,4 +16,7 @@
     <string name="saved">saved</string>
     <string name="created">created</string>
     <string name="nothing_found">Nothing found...</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="settings">Settings</string>
 </resources>

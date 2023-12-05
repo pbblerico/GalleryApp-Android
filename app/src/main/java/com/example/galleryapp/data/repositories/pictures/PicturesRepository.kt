@@ -7,6 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 interface PicturesRepository {
 
-    suspend fun getCuratedPictures(): PictureResponse?
+    suspend fun getCuratedPictures(page: Int = 1, per_page: Int = 20): PictureResponse?
     var pictureFlow: Flow<PagingData<Photo>>
 }

@@ -15,6 +15,7 @@ import javax.inject.Singleton
 object PictureRepositoryModule {
 
     @Provides
+    @Singleton
     fun providePicturePaging(api: PicturesApi) = PicturePagingSource(api)
 
     @Singleton

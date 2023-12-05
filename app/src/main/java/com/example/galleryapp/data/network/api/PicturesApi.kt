@@ -8,6 +8,7 @@ import retrofit2.http.Query
 interface PicturesApi {
     @GET("curated")
     suspend fun getCuratedPhotos(
-        @Query("per_page") perPage: Int = 20
+        @Query("per_page") perPage: Int = 20,
+        @Query("page") page: Int = 1
     ): Response<PictureResponse>
 }
