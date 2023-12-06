@@ -3,14 +3,14 @@ package com.example.galleryapp.data.preferences
 import android.content.SharedPreferences
 
 class PreferencesUtils(private var preferences: SharedPreferences) {
-    fun getString(key: Preferences): String {
-        return preferences.getString(key.name, "").orEmpty()
+    fun getString(key: Preferences, default: String? = null): String {
+        return preferences.getString(key.name, default).orEmpty()
     }
-    fun getInt(key: Preferences): Int {
-        return preferences.getInt(key.name, 0)
+    fun getInt(key: Preferences, default: Int = 0): Int {
+        return preferences.getInt(key.name, default)
     }
-    fun getBoolean(key: Preferences): Boolean {
-        return preferences.getBoolean(key.name, false)
+    fun getBoolean(key: Preferences, default: Boolean = false): Boolean {
+        return preferences.getBoolean(key.name, default)
     }
 
     fun remove(key: Preferences) {

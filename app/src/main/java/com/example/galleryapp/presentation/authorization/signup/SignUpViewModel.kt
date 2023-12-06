@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.base.BaseViewModel
 import com.example.galleryapp.data.useCases.authorization.SignUpUseCase
-import com.example.galleryapp.presentation.authorization.login.AuthScreenContract
+import com.example.galleryapp.presentation.authorization.login.AuthContract
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -14,37 +14,37 @@ import javax.inject.Inject
 class SignUpViewModel @Inject constructor(
     private val signUpUseCase: SignUpUseCase
 ) :
-    BaseViewModel<AuthScreenContract.State, AuthScreenContract.AuthEvent, AuthScreenContract.AuthEffect>() {
-    override fun createInitialState(): AuthScreenContract.State {
-        return AuthScreenContract.State(AuthScreenContract.AuthState.Idle)
+    BaseViewModel<AuthContract.State, AuthContract.AuthEvent, AuthContract.AuthEffect>() {
+    override fun createInitialState(): AuthContract.State {
+        return AuthContract.State(AuthContract.AuthState.Idle)
     }
 
-    override fun handleEvent(event: AuthScreenContract.AuthEvent) {
+    override fun handleEvent(event: AuthContract.AuthEvent) {
         when (event) {
-            is AuthScreenContract.AuthEvent.OnAuthButtonClick -> {
+            is AuthContract.AuthEvent.OnAuthButtonClick -> {
                 event.nickname?.let {
                     signUp(it, event.email, event.password)
                 } ?: signUp("", event.email, event.password)
             }
 
-            is AuthScreenContract.AuthEvent.OnSignUpClick -> {
-                setEffect { AuthScreenContract.AuthEffect.NavigateToAnotherAuthMethod }
+            is AuthContract.AuthEvent.OnSignUpClick -> {
+                setEffect { AuthContract.AuthEffect.NavigateToAnotherAuthMethod }
             }
 
-            is AuthScreenContract.AuthEvent.OnBackIconClick -> {
-                setEffect { AuthScreenContract.AuthEffect.NavigateBack }
+            is AuthContract.AuthEvent.OnBackIconClick -> {
+                setEffect { AuthContract.AuthEffect.NavigateBack }
             }
         }
     }
 
     private fun signUp(nickname: String, email: String, password: String) {
-        setState { copy(AuthScreenContract.AuthState.Loading) }
+        setState { copy(AuthContract.AuthState.Loading) }
         viewModelScope.launch {
             try {
                 val result = signUpUseCase.execute(nickname, email, password)
                 val uid = result?.user?.uid
                 uid?.let {
-                    setState { copy(AuthScreenContract.AuthState.Success(it)) }
+                    setState { copy(AuthContract.AuthState.Success(it)) }
                 }
             } catch (e: Exception) {
                 Log.e("auth_exception", e.message ?: "unknown error")

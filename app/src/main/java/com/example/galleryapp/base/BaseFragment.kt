@@ -15,10 +15,6 @@ abstract class BaseFragment<VB: ViewBinding>(@LayoutRes protected val contentLay
     protected lateinit var binding: VB
     protected abstract fun getViewBinding(): VB
 
-
-//    protected lateinit var viewModel: VM
-//    protected abstract fun getViewModelClass(): Class<VM>
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         init()
@@ -26,7 +22,6 @@ abstract class BaseFragment<VB: ViewBinding>(@LayoutRes protected val contentLay
 
     private fun init() {
         binding = getViewBinding()
-//        viewModel = ViewModelProvider(this)[getViewModelClass()]
     }
 
     override fun onCreateView(

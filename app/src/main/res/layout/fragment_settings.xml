@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.settings.SettingsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.settings.SettingsFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
+    <com.example.galleryapp.views.ToolbarView
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:toolbar_title="Settings"
+        app:start_icon="@drawable/ic_arrow_back"
+        app:start_icon_visibility="true"
+        app:trailing_icon="@drawable/ic_login"
+        app:trailing_icon_visibility="true"
+        />
+
+    <TextView
+        android:id="@+id/manage_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/manage_account"
+        />
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text="Theme"
+        />
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <AutoCompleteTextView
+            android:id="@+id/languages_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:editable="false"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>

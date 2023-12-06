@@ -9,23 +9,23 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     val loginUseCase: LoginUseCase
-) : BaseViewModel<AuthScreenContract.State, AuthScreenContract.AuthEvent, AuthScreenContract.AuthEffect>() {
-    override fun createInitialState(): AuthScreenContract.State {
-        return AuthScreenContract.State(AuthScreenContract.AuthState.Idle)
+) : BaseViewModel<AuthContract.State, AuthContract.AuthEvent, AuthContract.AuthEffect>() {
+    override fun createInitialState(): AuthContract.State {
+        return AuthContract.State(AuthContract.AuthState.Idle)
     }
 
-    override fun handleEvent(event: AuthScreenContract.AuthEvent) {
+    override fun handleEvent(event: AuthContract.AuthEvent) {
         when (event) {
-            is AuthScreenContract.AuthEvent.OnAuthButtonClick -> {
+            is AuthContract.AuthEvent.OnAuthButtonClick -> {
                 login(event.email, event.password)
             }
 
-            is AuthScreenContract.AuthEvent.OnSignUpClick -> {
-                setEffect { AuthScreenContract.AuthEffect.NavigateToAnotherAuthMethod }
+            is AuthContract.AuthEvent.OnSignUpClick -> {
+                setEffect { AuthContract.AuthEffect.NavigateToAnotherAuthMethod }
             }
 
-            is AuthScreenContract.AuthEvent.OnBackIconClick -> {
-                setEffect { AuthScreenContract.AuthEffect.NavigateBack }
+            is AuthContract.AuthEvent.OnBackIconClick -> {
+                setEffect { AuthContract.AuthEffect.NavigateBack }
             }
         }
     }
@@ -35,17 +35,17 @@ class LoginViewModel @Inject constructor(
 //            setState { copy(AuthScreenContract.AuthState.Success(u)) }
 //        } ?: {
             setState {
-                copy(AuthScreenContract.AuthState.Loading)
+                copy(AuthContract.AuthState.Loading)
             }
             launch(
                 request = {
                     loginUseCase.execute(email, password)
                 },
                 onSuccess = {result ->
-                    setState { copy(AuthScreenContract.AuthState.Success(result?.user?.uid)) }
+                    setState { copy(AuthContract.AuthState.Success(result?.user?.uid)) }
                 },
                 onError = {e ->
-                    setState { copy(AuthScreenContract.AuthState.Failure(e)) }
+                    setState { copy(AuthContract.AuthState.Failure(e)) }
                 }
             )
 //        }

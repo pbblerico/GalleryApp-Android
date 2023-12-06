@@ -8,7 +8,7 @@ import androidx.navigation.Navigation
 import com.example.galleryapp.R
 import com.example.galleryapp.base.BaseFragment
 import com.example.galleryapp.databinding.FragmentSignUpBinding
-import com.example.galleryapp.presentation.authorization.login.AuthScreenContract
+import com.example.galleryapp.presentation.authorization.login.AuthContract
 import com.example.galleryapp.utils.setSafeOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,11 +21,11 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
 
     override fun setUpViews() {
         binding.authorization.toolbar.startIconAction = {
-            viewModel.handleEvent(AuthScreenContract.AuthEvent.OnBackIconClick)
+            viewModel.handleEvent(AuthContract.AuthEvent.OnBackIconClick)
         }
 
         binding.authorization.toOtherOption.setSafeOnClickListener {
-            viewModel.handleEvent(AuthScreenContract.AuthEvent.OnSignUpClick)
+            viewModel.handleEvent(AuthContract.AuthEvent.OnSignUpClick)
         }
 
         binding.authorization.submitBtn.action = {
@@ -37,7 +37,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
                 when (state.authState) {
-                    is AuthScreenContract.AuthState.Success -> {
+                    is AuthContract.AuthState.Success -> {
                         Log.d("sign_state", "hello")
                     }
 
@@ -49,15 +49,15 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.effect.collect { effect ->
                 when (effect) {
-                    is AuthScreenContract.AuthEffect.NavigateToAnotherAuthMethod -> {
+                    is AuthContract.AuthEffect.NavigateToAnotherAuthMethod -> {
                         Navigation.findNavController(binding.root).navigate(R.id.loginFragment)
                     }
 
-                    is AuthScreenContract.AuthEffect.NavigateBack -> {
+                    is AuthContract.AuthEffect.NavigateBack -> {
                         Navigation.findNavController(binding.root).popBackStack()
                     }
 
-                    is AuthScreenContract.AuthEffect.ShowToast -> {
+                    is AuthContract.AuthEffect.ShowToast -> {
                         Toast.makeText(requireContext(), effect.message, Toast.LENGTH_SHORT).show()
                     }
                 }
@@ -71,7 +71,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
         val nickname = binding.authorization.nicknameET.text.toString().trim()
 
         viewModel.handleEvent(
-            AuthScreenContract.AuthEvent.OnAuthButtonClick(
+            AuthContract.AuthEvent.OnAuthButtonClick(
                 email,
                 password,
                 nickname

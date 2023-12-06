@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.galleryapp.utils.enums.OnBoardingElement
 import com.example.galleryapp.databinding.FragmentOnBoardingItemBinding
+import com.example.galleryapp.utils.enums.OnBoardingElement
 
 class OnBoardingItemFragment(private val onBoardingElement: OnBoardingElement?): Fragment() {
     private lateinit var binding: FragmentOnBoardingItemBinding
@@ -28,5 +28,7 @@ class OnBoardingItemFragment(private val onBoardingElement: OnBoardingElement?):
 
         return binding.root
     }
+
+
 
 }

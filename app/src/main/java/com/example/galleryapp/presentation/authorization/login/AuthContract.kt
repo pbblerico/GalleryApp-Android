@@ -5,7 +5,7 @@ import com.example.galleryapp.shared.base.UiEvent
 import com.example.galleryapp.shared.base.UiState
 
 
-class AuthScreenContract {
+class AuthContract {
 
     data class State(
         val authState: AuthState

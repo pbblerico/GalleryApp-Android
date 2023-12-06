@@ -1,11 +1,13 @@
 package com.example.galleryapp.presentation.folder
 
+import android.content.Context
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.galleryapp.R
 import com.example.galleryapp.account.presentation.adapter.ImageAdapter
 import com.example.galleryapp.base.BaseFragment
 import com.example.galleryapp.data.models.Image
+import com.example.galleryapp.data.preferences.Preferences
 import com.example.galleryapp.databinding.FragmentFolderBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -36,10 +38,14 @@ class FolderFragment : BaseFragment<FragmentFolderBinding>(R.layout.fragment_fol
         adapter.click = {
             Navigation.findNavController(binding.root).navigate(R.id.imageFragment)
         }
+
+        binding.floatingButton.setOnClickListener {
+            val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
+            sharedPref.edit().putBoolean(Preferences.AUTHORIZED.name, true).apply()
+        }
     }
 
     override fun observeState() {
-        TODO("Not yet implemented")
     }
 
 }

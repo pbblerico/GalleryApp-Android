@@ -10,11 +10,9 @@ class ImageFragment : BaseFragment<FragmentImageBinding>(R.layout.fragment_image
     override fun getViewBinding(): FragmentImageBinding = FragmentImageBinding.inflate(layoutInflater)
 
     override fun setUpViews() {
-        TODO("Not yet implemented")
     }
 
     override fun observeState() {
-        TODO("Not yet implemented")
     }
 
 

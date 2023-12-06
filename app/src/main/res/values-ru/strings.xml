@@ -11,4 +11,7 @@
     <string name="password">пароль</string>
     <string name="email">почта</string>
     <string name="login">войти</string>
+
+    <string name="russian">Русский</string>
+    <string name="english">Английский</string>
 </resources>

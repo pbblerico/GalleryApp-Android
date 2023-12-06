@@ -1,23 +1,32 @@
 package com.example.galleryapp.presentation.onBoarding
 
-import android.content.Context
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.Navigation
 import androidx.viewpager2.widget.ViewPager2
 import com.example.galleryapp.R
 import com.example.galleryapp.account.presentation.adapter.ViewPagerAdapter
 import com.example.galleryapp.base.BaseFragment
-import com.example.galleryapp.data.preferences.PreferencesUtils
 import com.example.galleryapp.databinding.FragmentOnBoardingBinding
+import com.example.galleryapp.utils.enums.Destination
 import com.example.galleryapp.utils.enums.OnBoardingElement
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding>(R.layout.fragment_on_boarding) {
-    override fun getViewBinding(): FragmentOnBoardingBinding = FragmentOnBoardingBinding.inflate(layoutInflater)
+    private val viewModel: OnBoardingViewModel by viewModels()
+    override fun getViewBinding(): FragmentOnBoardingBinding =
+        FragmentOnBoardingBinding.inflate(layoutInflater)
 
     override fun setUpViews() {
+        if (viewModel.getInitialEntry()) {
+            Navigation.findNavController(requireView()).navigate(R.id.homeFragment)
+        }
+
         val fragmentList: MutableList<Fragment> = mutableListOf()
         OnBoardingElement.values().forEach {
             fragmentList.add(OnBoardingItemFragment(it))
@@ -33,39 +42,48 @@ class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding>(R.layout.frag
             }
         })
 
-
-        binding.previousButton.setOnClickListener {
-            if(binding.viewPager.currentItem > 0) {
-                binding.viewPager.setCurrentItem(binding.viewPager.currentItem - 1, true)
-            }
-        }
-
         binding.viewPager.isUserInputEnabled = false
 
-        TabLayoutMediator(binding.bottomTab, binding.viewPager) {tab, _ ->
+        TabLayoutMediator(binding.bottomTab, binding.viewPager) { tab, _ ->
             tab.view.isClickable = false
         }.attach()
 
-        val sharedPref = requireActivity().getPreferences(Context.MODE_PRIVATE)
-        val sharedUtils = PreferencesUtils(sharedPref)
 
+        binding.previousButton.setOnClickListener {
+            viewModel.handleEvent(
+                OnBoardingContract.OnBoardingEvent.OnPageChanged(
+                    binding.viewPager.currentItem - 1,
+                    fragmentList.size
+                )
+            )
+        }
         binding.nextButton.setOnClickListener {
-            if(binding.viewPager.currentItem < fragmentList.size - 1) {
-                binding.viewPager.setCurrentItem(binding.viewPager.currentItem + 1, true)
-            } else {
-                sharedPref.edit().putBoolean("entered", true).apply()
-                Navigation.findNavController(it).navigate(R.id.homeFragment)
-
-            }
+            viewModel.handleEvent(
+                OnBoardingContract.OnBoardingEvent.OnPageChanged(
+                    binding.viewPager.currentItem + 1,
+                    fragmentList.size
+                )
+            )
         }
 
-        if(sharedPref.getBoolean("entered", false)) {
-            Navigation.findNavController(requireView()).navigate(R.id.homeFragment)
-        }
     }
 
     override fun observeState() {
-        TODO("Not yet implemented")
+        viewLifecycleOwner.lifecycleScope.launchWhenStarted {
+            viewModel.effect.collect { effect ->
+                when (effect) {
+                    is OnBoardingContract.OnBoardingEffect.OnPageChanged -> {
+                        binding.viewPager.setCurrentItem(effect.position, true)
+                    }
+
+                    is OnBoardingContract.OnBoardingEffect.NavigateToHome -> {
+                        viewModel.saveInitialEntry()
+                        Navigation.findNavController(binding.root)
+                            .navigate(Destination.HOME.fragmentId)
+                    }
+                }
+            }
+        }
     }
 
     fun setButtons(firstPage: Boolean, lastPage: Boolean) {

@@ -12,6 +12,19 @@ class AuthRepositoryImpl @Inject constructor(
     override val currentUser: FirebaseUser?
         get() = firebaseAuth.currentUser
 
+//    override fun observeAuthState() = callbackFlow {
+//        val authStateListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
+//            val user = firebaseAuth.currentUser
+//            trySend(user)
+//        }
+//
+//        firebaseAuth.addAuthStateListener(authStateListener)
+//
+//        awaitClose {
+//            firebaseAuth.removeAuthStateListener(authStateListener)
+//        }
+//    }
+
     override suspend fun login(
         email: String,
         password: String

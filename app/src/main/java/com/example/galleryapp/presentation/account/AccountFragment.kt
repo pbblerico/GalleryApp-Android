@@ -33,6 +33,5 @@ class AccountFragment : BaseFragment<FragmentAccountBinding>(R.layout.fragment_a
     }
 
     override fun observeState() {
-        TODO("Not yet implemented")
     }
 }
