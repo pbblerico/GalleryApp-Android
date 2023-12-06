@@ -16,7 +16,7 @@ class PicturePagingAdapter :
 
     var click: ((Photo?) -> Unit)? = null
 
-    class PictureViewHolder(private val binding: ItemImageBinding, private var click: ((Photo?) -> Unit)? = null) :
+    inner class PictureViewHolder(private val binding: ItemImageBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Photo) {
             item.urlSource?.let {
@@ -40,8 +40,7 @@ class PicturePagingAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PictureViewHolder {
         return PictureViewHolder(
-            ItemImageBinding.inflate(LayoutInflater.from(parent.context), parent, false),
-            click
+            ItemImageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         )
     }
 }

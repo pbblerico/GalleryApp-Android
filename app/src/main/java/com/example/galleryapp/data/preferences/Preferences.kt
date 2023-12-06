@@ -4,5 +4,7 @@ enum class Preferences {
     APP,
     AUTH_TOKEN,
     ONBOARDED,
-    AUTHORIZED
+    AUTHORIZED,
+    LANGUAGE,
+    THEME
 }
