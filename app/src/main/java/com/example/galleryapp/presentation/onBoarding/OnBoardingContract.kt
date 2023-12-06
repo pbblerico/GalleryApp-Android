@@ -6,7 +6,7 @@ import com.example.galleryapp.shared.base.UiState
 
 class OnBoardingContract {
     sealed class OnBoardingState : UiState {
-        object Initial : OnBoardingState()
+        data object Initial : OnBoardingState()
     }
 
     sealed class OnBoardingEvent : UiEvent {
@@ -15,6 +15,6 @@ class OnBoardingContract {
 
     sealed class OnBoardingEffect : UiEffect {
         data class OnPageChanged(val position: Int) : OnBoardingEffect()
-        object NavigateToHome : OnBoardingEffect()
+        data object NavigateToHome : OnBoardingEffect()
     }
 }

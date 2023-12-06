@@ -12,6 +12,7 @@
         android:layout_height="200dp"
         android:src="@drawable/anonymous"
         android:minHeight="100dp"
+        android:scaleType="centerCrop"
         />
 
 </androidx.cardview.widget.CardView>

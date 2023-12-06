@@ -28,7 +28,4 @@ class OnBoardingItemFragment(private val onBoardingElement: OnBoardingElement?):
 
         return binding.root
     }
-
-
-
 }

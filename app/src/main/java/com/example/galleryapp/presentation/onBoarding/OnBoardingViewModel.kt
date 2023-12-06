@@ -1,6 +1,6 @@
 package com.example.galleryapp.presentation.onBoarding
 
-import com.example.galleryapp.base.TestBaseViewModel
+import com.example.galleryapp.base.BaseViewModel
 import com.example.galleryapp.data.preferences.Preferences
 import com.example.galleryapp.data.preferences.PreferencesUtils
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -9,7 +9,7 @@ import javax.inject.Inject
 @HiltViewModel
 class OnBoardingViewModel @Inject constructor(
     private val preferencesUtils: PreferencesUtils
-): TestBaseViewModel<OnBoardingContract.OnBoardingState, OnBoardingContract.OnBoardingEvent, OnBoardingContract.OnBoardingEffect>() {
+): BaseViewModel<OnBoardingContract.OnBoardingState, OnBoardingContract.OnBoardingEvent, OnBoardingContract.OnBoardingEffect>() {
     override fun createInitialState(): OnBoardingContract.OnBoardingState =
         OnBoardingContract.OnBoardingState.Initial
 

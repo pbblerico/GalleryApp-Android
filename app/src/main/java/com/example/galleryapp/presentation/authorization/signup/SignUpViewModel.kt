@@ -14,9 +14,9 @@ import javax.inject.Inject
 class SignUpViewModel @Inject constructor(
     private val signUpUseCase: SignUpUseCase
 ) :
-    BaseViewModel<AuthContract.State, AuthContract.AuthEvent, AuthContract.AuthEffect>() {
-    override fun createInitialState(): AuthContract.State {
-        return AuthContract.State(AuthContract.AuthState.Idle)
+    BaseViewModel<AuthContract.AuthState, AuthContract.AuthEvent, AuthContract.AuthEffect>() {
+    override fun createInitialState(): AuthContract.AuthState {
+        return AuthContract.AuthState.Idle
     }
 
     override fun handleEvent(event: AuthContract.AuthEvent) {
@@ -28,23 +28,23 @@ class SignUpViewModel @Inject constructor(
             }
 
             is AuthContract.AuthEvent.OnSignUpClick -> {
-                setEffect { AuthContract.AuthEffect.NavigateToAnotherAuthMethod }
+                setEffect ( AuthContract.AuthEffect.NavigateToAnotherAuthMethod )
             }
 
             is AuthContract.AuthEvent.OnBackIconClick -> {
-                setEffect { AuthContract.AuthEffect.NavigateBack }
+                setEffect ( AuthContract.AuthEffect.NavigateBack )
             }
         }
     }
 
     private fun signUp(nickname: String, email: String, password: String) {
-        setState { copy(AuthContract.AuthState.Loading) }
+        setState (AuthContract.AuthState.Loading)
         viewModelScope.launch {
             try {
                 val result = signUpUseCase.execute(nickname, email, password)
                 val uid = result?.user?.uid
                 uid?.let {
-                    setState { copy(AuthContract.AuthState.Success(it)) }
+                    setState (AuthContract.AuthState.Success(it))
                 }
             } catch (e: Exception) {
                 Log.e("auth_exception", e.message ?: "unknown error")

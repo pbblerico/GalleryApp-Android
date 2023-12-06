@@ -1,6 +1,5 @@
 package com.example.galleryapp.account.presentation.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
@@ -15,20 +14,22 @@ import com.example.galleryapp.databinding.ItemImageBinding
 class PicturePagingAdapter :
     PagingDataAdapter<Photo, PicturePagingAdapter.PictureViewHolder>(PictureDiffUtils()) {
 
-    class PictureViewHolder(private val binding: ItemImageBinding) :
+    var click: ((Photo?) -> Unit)? = null
+
+    class PictureViewHolder(private val binding: ItemImageBinding, private var click: ((Photo?) -> Unit)? = null) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: Photo) {
-            item?.urlSource?.let { Log.d("item", it.original.toString()) }
-
             item.urlSource?.let {
-//                val url = it.substring(0, it.length - 1) + ".jpeg"
-//                Log.d("item", url)
                 binding.image.load(it.original)
                 {
                     crossfade(true)
                     placeholder(R.drawable.anonymous)
                     scale(Scale.FILL)
                 }
+            }
+
+            itemView.setOnClickListener {
+                click?.invoke(item)
             }
         }
     }
@@ -39,7 +40,8 @@ class PicturePagingAdapter :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PictureViewHolder {
         return PictureViewHolder(
-            ItemImageBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemImageBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            click
         )
     }
 }

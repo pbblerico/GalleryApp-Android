@@ -12,7 +12,6 @@ import com.example.galleryapp.presentation.authorization.login.AuthContract
 import com.example.galleryapp.utils.setSafeOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
-//import org.koin.androidx.viewmodel.ext.android.viewModel
 
 @AndroidEntryPoint
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sign_up) {
@@ -36,7 +35,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
     override fun observeState() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect { state ->
-                when (state.authState) {
+                when (state) {
                     is AuthContract.AuthState.Success -> {
                         Log.d("sign_state", "hello")
                     }

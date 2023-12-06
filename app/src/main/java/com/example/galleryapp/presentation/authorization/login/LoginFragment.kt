@@ -44,7 +44,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>(R.layout.fragment_login)
     override fun observeState() {
         viewLifecycleOwner.lifecycleScope.launchWhenStarted {
             viewModel.uiState.collect{state ->
-                when(state.authState) {
+                when(state) {
                     is AuthContract.AuthState.Success -> {
                         Log.d("login_state", "hello")
 

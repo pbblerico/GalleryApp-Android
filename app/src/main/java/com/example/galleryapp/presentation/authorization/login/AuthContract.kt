@@ -6,11 +6,7 @@ import com.example.galleryapp.shared.base.UiState
 
 
 class AuthContract {
-
-    data class State(
-        val authState: AuthState
-    ): UiState
-    sealed class AuthState  {
+    sealed class AuthState: UiState  {
         object Idle: AuthState()
         object Loading: AuthState()
         data class Success(val uid: String?): AuthState()
