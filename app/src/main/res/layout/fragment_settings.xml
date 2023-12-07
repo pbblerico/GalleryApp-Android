@@ -24,6 +24,7 @@
         android:padding="16dp">
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/manage_account_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -33,6 +34,7 @@
             android:textStyle="bold"/>
 
         <LinearLayout
+            android:visibility="gone"
             android:id="@+id/manage_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -78,26 +80,45 @@
                 android:textStyle="bold"
                 android:textSize="20sp" />
 
-            <Spinner
-                android:id="@+id/theme"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:padding="10dp"/>
+<!--            <Spinner-->
+<!--                android:id="@+id/theme"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="50dp"-->
+<!--                android:padding="10dp"/>-->
 
-            <com.google.android.material.textfield.TextInputLayout
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/light"
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
+                android:layout_marginHorizontal="10dp"
+                android:backgroundTint="@color/primaryContainer"
                 android:layout_height="wrap_content"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                >
+                android:layout_weight="1"
+                android:text="@string/light_theme"
+                />
 
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteTheme"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/dark"
+                android:backgroundTint="@color/secondaryContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/dark_theme"
+                />
 
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+<!--                >-->
+
+<!--                <AutoCompleteTextView-->
+<!--                    android:id="@+id/autoCompleteTheme"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:inputType="none"/>-->
+
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
         </LinearLayout>
 
 
@@ -116,27 +137,27 @@
                 android:textStyle="bold"
                 android:textSize="20sp" />
 
-<!--            <Spinner-->
-<!--                android:id="@+id/languages_list"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:padding="10dp"/>-->
-
-            <com.google.android.material.textfield.TextInputLayout
+            <Spinner
+                android:id="@+id/languages_list"
                 android:layout_width="wrap_content"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                >
+                android:layout_height="50dp"
+                android:padding="10dp"/>
 
-                <AutoCompleteTextView
-                    android:id="@+id/autoCompleteLanguage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"/>
+<!--            <com.google.android.material.textfield.TextInputLayout-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_weight="1"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"-->
+<!--                >-->
+
+<!--                <AutoCompleteTextView-->
+<!--                    android:id="@+id/autoCompleteLanguage"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:inputType="none"/>-->
 
 
-            </com.google.android.material.textfield.TextInputLayout>
+<!--            </com.google.android.material.textfield.TextInputLayout>-->
 
         </LinearLayout>
 
@@ -148,6 +169,8 @@
             android:gravity="end"
             android:padding="20dp"
             android:textSize="20sp"
+            android:textColor="#FF0000"
+            android:textStyle="bold"
             />
 
     </LinearLayout>

@@ -39,5 +39,6 @@ class SettingsViewModel @Inject constructor(
         viewModelScope.launch {
             logOutUseCase.execute()
         }
+        preferencesUtils.saveBoolean(Preferences.AUTHORIZED, false)
     }
 }

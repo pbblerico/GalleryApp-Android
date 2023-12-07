@@ -3,9 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-
-    <color name="seed">#219C90</color>
-    <color name="primary">#006A61</color>
+    <color name="primary">@color/white</color>
     <color name="onPrimary">#FFFFFF</color>
     <color name="primaryContainer">#73F8E8</color>
     <color name="onPrimaryContainer">#00201D</color>

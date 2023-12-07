@@ -1,7 +1,5 @@
 package com.example.galleryapp.presentation.account
 
-import android.util.Log
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
@@ -28,23 +26,14 @@ class AccountFragment : BaseFragment<FragmentAccountBinding>(R.layout.fragment_a
         binding.folderAdapter.adapter = adapter
 
         val list = listOf(
-            Folder(0, "one really long long title that I want to test the", ""),
-            Folder(1, "two", ""),
-            Folder(2, "four", ""),
-            Folder(3, "three", ""),
+            Folder("public"),
+            Folder( "private"),
         )
         val storage = Firebase.storage.reference
-        val directory = storage.child("users/${viewModel.getCurrentUser()?.uid}/images/public")
+        val directory = storage.child("users/${viewModel.getCurrentUser()?.uid}/images")
 
-        directory.listAll()
-            .addOnSuccessListener {result ->
-                for(item in result.items) {
-                    Log.d("directories", item.name)
-                }
-            }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
-            }
+        val folders: MutableList<Folder> = mutableListOf()
+
 
 
         adapter.submitList(list)

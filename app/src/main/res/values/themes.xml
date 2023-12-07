@@ -28,7 +28,7 @@
         <item name="colorOnSurfaceInverse">@color/inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/inverseSurface</item>
         <item name="colorPrimaryInverse">@color/inversePrimary</item>
-        
+
         <item name="android:statusBarColor">@color/black</item>
 
 

@@ -32,6 +32,8 @@
     <string name="dark_theme">Dark</string>
     <string name="system_theme">System</string>
 
+    <string name="lets_start" translatable="false">Let\'s start</string>
+
 
     <string-array name="languages">
         <item>English</item>

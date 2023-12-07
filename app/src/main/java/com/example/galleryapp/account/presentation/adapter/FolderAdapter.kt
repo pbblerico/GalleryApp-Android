@@ -13,7 +13,7 @@ class FolderAdapter: ListAdapter<Folder, FolderAdapter.FolderViewHolder>(FolderD
     var click: (() -> Unit)? = null
     object FolderDiffUtils: DiffUtil.ItemCallback<Folder>() {
         override fun areItemsTheSame(oldItem: Folder, newItem: Folder): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem == newItem
         }
 
         override fun areContentsTheSame(oldItem: Folder, newItem: Folder): Boolean {

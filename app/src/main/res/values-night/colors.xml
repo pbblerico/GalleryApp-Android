@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#52DBCC</color>
-    <color name="onPrimary">#003732</color>
+    <color name="primary">#003732</color>
+    <color name="onPrimary">#52DBCC</color>
     <color name="primaryContainer">#005049</color>
     <color name="onPrimaryContainer">#73F8E8</color>
     <color name="secondary">#B1CCC7</color>

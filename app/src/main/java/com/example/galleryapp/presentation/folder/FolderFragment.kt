@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.galleryapp.R
 import com.example.galleryapp.account.presentation.adapter.ImageAdapter
 import com.example.galleryapp.base.BaseFragment
-import com.example.galleryapp.data.models.Image
 import com.example.galleryapp.databinding.FragmentFolderBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
@@ -35,19 +34,19 @@ class FolderFragment : BaseFragment<FragmentFolderBinding>(R.layout.fragment_fol
 
         Log.d("asd", "${FirebaseAuth.getInstance().currentUser?.uid}")
 
-        val list = listOf(
-            Image(1, "asdsfsdfs"),
-            Image(1, "asdsfsdfs"),
-            Image(1, "asdsfsdfs"),
-            Image(1, "asdsfsdfs"),
-            Image(1, "asdsfsdfs"),
-            Image(1, "asdsfsdfs"),
-            Image(1, "asdsfsdfs"),
-            Image(1, "asdsfsdfs"),
-            Image(1, "asdsfsdfs"),
-            Image(1, "asdsfsdfs"),
-        )
-        adapter.submitList(list)
+//        val list = listOf(
+//            Image(1, "asdsfsdfs"),
+//            Image(1, "asdsfsdfs"),
+//            Image(1, "asdsfsdfs"),
+//            Image(1, "asdsfsdfs"),
+//            Image(1, "asdsfsdfs"),
+//            Image(1, "asdsfsdfs"),
+//            Image(1, "asdsfsdfs"),
+//            Image(1, "asdsfsdfs"),
+//            Image(1, "asdsfsdfs"),
+//            Image(1, "asdsfsdfs"),
+//        )
+//        adapter.submitList(list)
         adapter.click = {
             Navigation.findNavController(binding.root).navigate(R.id.imageFragment)
         }

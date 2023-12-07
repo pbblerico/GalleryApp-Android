@@ -43,6 +43,8 @@
             android:layout_gravity="start"
             android:text="@string/previous"
             android:visibility="gone"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/tertiaryContainer"
             android:layout_marginEnd="32dp"/>
 
         <View
@@ -56,6 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/tertiaryContainer"
             android:text="@string/next"
             android:layout_marginStart="32dp"/>
 

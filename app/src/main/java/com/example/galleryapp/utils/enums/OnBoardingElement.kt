@@ -9,6 +9,6 @@ enum class OnBoardingElement(
     @RawRes val animation: Int
 ) {
     WELCOME(R.string.app_name, R.raw.welcome),
-    GALLERY(R.string.name, R.raw.gallery),
-    START(R.string.app_name, R.raw.start_dance)
+    GALLERY(R.string.app_name, R.raw.gallery),
+    START(R.string.lets_start, R.raw.start_dance)
 }
