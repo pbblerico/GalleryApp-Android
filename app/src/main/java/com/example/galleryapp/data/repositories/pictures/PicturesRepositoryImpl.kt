@@ -27,6 +27,13 @@ class PicturesRepositoryImpl @Inject constructor(
         pagingSourceFactory = { pagingSource }
     ).flow
 
+    override suspend fun getPictureById(id: Int): Photo? {
+        val result = api.getPhotoById(id)
+        return if(result.isSuccessful) {
+            result.body()
+        } else throw Exception(result.errorBody().toString())
+    }
+
     override suspend fun getImages(path: String, onSuccess: (List<String>) -> Unit) {
 
         val imageUrls = mutableListOf<String>()

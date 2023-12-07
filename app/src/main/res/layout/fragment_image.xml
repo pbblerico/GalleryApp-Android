@@ -16,12 +16,22 @@
         app:trailing_icon_visibility="true"
         />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:visibility="gone"
+        android:id="@+id/loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_rawRes="@raw/loading_circle"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        />
+
     <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         />
 
 

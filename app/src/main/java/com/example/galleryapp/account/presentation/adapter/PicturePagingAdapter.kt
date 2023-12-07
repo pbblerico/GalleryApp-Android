@@ -23,7 +23,7 @@ class PicturePagingAdapter :
                 binding.image.load(it.original)
                 {
                     crossfade(true)
-                    placeholder(R.drawable.anonymous)
+                    placeholder(R.drawable.placeholder)
                     scale(Scale.FILL)
                 }
             }

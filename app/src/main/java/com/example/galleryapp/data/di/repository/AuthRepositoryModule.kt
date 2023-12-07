@@ -3,7 +3,7 @@ package com.example.galleryapp.data.di.repository
 import com.example.galleryapp.data.repositories.authorization.AuthRepository
 import com.example.galleryapp.data.repositories.authorization.AuthRepositoryImpl
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.DatabaseReference
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -16,5 +16,5 @@ import javax.inject.Singleton
 object AuthRepositoryModule {
     @Provides
     @Singleton
-    fun provideAuthRepository(firebaseAuth: FirebaseAuth, firebaseDatabase: FirebaseDatabase): AuthRepository = AuthRepositoryImpl(firebaseAuth, firebaseDatabase)
+    fun provideAuthRepository(firebaseAuth: FirebaseAuth, firebaseDatabase: DatabaseReference): AuthRepository = AuthRepositoryImpl(firebaseAuth, firebaseDatabase)
 }
