@@ -2,6 +2,8 @@ package com.example.galleryapp.presentation.authorization.login
 
 import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.base.BaseViewModel
+import com.example.galleryapp.data.preferences.Preferences
+import com.example.galleryapp.data.preferences.PreferencesUtils
 import com.example.galleryapp.data.useCases.authorization.CurrentUserUseCase
 import com.example.galleryapp.data.useCases.authorization.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,7 +14,8 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
-    private val getCurrentUser: CurrentUserUseCase
+    private val getCurrentUser: CurrentUserUseCase,
+    private val preferencesUtils: PreferencesUtils
 ) : BaseViewModel<AuthContract.AuthState, AuthContract.AuthEvent, AuthContract.AuthEffect>() {
     override fun createInitialState(): AuthContract.AuthState {
         return AuthContract.AuthState.Idle
@@ -32,6 +35,10 @@ class LoginViewModel @Inject constructor(
                 setEffect(AuthContract.AuthEffect.NavigateBack)
             }
         }
+    }
+
+    fun saveLogs() {
+        preferencesUtils.saveBoolean(Preferences.AUTHORIZED, true)
     }
 
     private fun login(email: String, password: String) {

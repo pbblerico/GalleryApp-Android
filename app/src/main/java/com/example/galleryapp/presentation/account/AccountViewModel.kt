@@ -9,7 +9,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AccountViewModel @Inject constructor(
-    private val currentUser: CurrentUserUseCase
+    private val currentUser: CurrentUserUseCase,
+//    private val
 ): ViewModel() {
 
     fun getCurrentUser(): FirebaseUser? {

@@ -2,6 +2,8 @@ package com.example.galleryapp.presentation.authorization.signup
 
 import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.base.BaseViewModel
+import com.example.galleryapp.data.preferences.Preferences
+import com.example.galleryapp.data.preferences.PreferencesUtils
 import com.example.galleryapp.data.useCases.authorization.CurrentUserUseCase
 import com.example.galleryapp.data.useCases.authorization.SignUpUseCase
 import com.example.galleryapp.presentation.authorization.login.AuthContract
@@ -13,7 +15,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SignUpViewModel @Inject constructor(
     private val signUpUseCase: SignUpUseCase,
-    private val getCurrentUser: CurrentUserUseCase
+    private val getCurrentUser: CurrentUserUseCase,
+    private val preferencesUtils: PreferencesUtils
 ) :
     BaseViewModel<AuthContract.AuthState, AuthContract.AuthEvent, AuthContract.AuthEffect>() {
     override fun createInitialState(): AuthContract.AuthState {
@@ -37,6 +40,11 @@ class SignUpViewModel @Inject constructor(
             }
         }
     }
+
+    fun saveLogs() {
+        preferencesUtils.saveBoolean(Preferences.AUTHORIZED, true)
+    }
+
 
     private fun signUp(nickname: String, email: String, password: String) {
         setState (AuthContract.AuthState.Loading)

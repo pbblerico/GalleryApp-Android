@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
@@ -18,6 +19,8 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref: SharedPreferences
+
+    private val viewModel: MainViewModel by viewModels()
 
     //todo loading view
 
@@ -38,10 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bottomBarVisibility(nav: NavController) {
-        val authorized = false
-        //todo hide elements of bottom bar
-        binding.bottomNavigation.menu.findItem(Destination.ACCOUNT.fragmentId).isVisible =
-            !authorized
+        binding.bottomNavigation.menu.findItem(Destination.ACCOUNT.fragmentId).isVisible = viewModel.isAuthorized()
 
         nav.addOnDestinationChangedListener { _, destination, _ ->
             if (MenuItems.values()

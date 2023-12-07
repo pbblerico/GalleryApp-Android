@@ -13,6 +13,12 @@ class AvatarImageView  @JvmOverloads constructor(
 
     private val binding = ViewAvatarImageBinding.inflate(LayoutInflater.from(context), this)
 
+    var name: String
+        get() = binding.nickname.text.toString()
+        set(value) {
+            binding.nickname.text = value
+        }
+
     init {
         setAttrs(attrs, R.styleable.AvatarImageView) {
             binding.imageView.setImageResource(

@@ -44,6 +44,8 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>(R.layout.fragment_login)
                 when(state) {
                     is AuthContract.AuthState.Success -> {
                         binding.authorization.submitBtn.isClickable = true
+                        viewModel.saveLogs()
+                        requireActivity().recreate()
                     }
                     is AuthContract.AuthState.Loading -> {
                         binding.authorization.submitBtn.isClickable = false

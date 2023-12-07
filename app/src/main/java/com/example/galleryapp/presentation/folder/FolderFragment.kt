@@ -29,6 +29,10 @@ class FolderFragment : BaseFragment<FragmentFolderBinding>(R.layout.fragment_fol
         binding.imageAdapter.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.imageAdapter.adapter = adapter
 
+        binding.toolbar.startIconAction = {
+            Navigation.findNavController(binding.root).popBackStack()
+        }
+
         Log.d("asd", "${FirebaseAuth.getInstance().currentUser?.uid}")
 
         val list = listOf(

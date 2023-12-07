@@ -16,14 +16,7 @@ class AuthRepositoryImpl @Inject constructor(
         email: String,
         password: String
     ) {
-        val response = firebaseAuth.signInWithEmailAndPassword(email, password).await()
-
-//        Log.d("reposnse", "${response.isSuccessful} erekldvadv;an;a")
-//        return if (response.isSuccessful) {
-//            response.result
-//        } else {
-//            throw Exception(response.exception)
-//        }
+        firebaseAuth.signInWithEmailAndPassword(email, password).await()
     }
 
     override suspend fun signup(

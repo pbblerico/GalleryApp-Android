@@ -38,6 +38,8 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
                 when (state) {
                     is AuthContract.AuthState.Success -> {
                         binding.authorization.submitBtn.isClickable = true
+                        viewModel.saveLogs()
+                        requireActivity().recreate()
                     }
                     is AuthContract.AuthState.Loading -> {
                         binding.authorization.submitBtn.isClickable = false
