@@ -1,6 +1,5 @@
 package com.example.galleryapp.presentation.authorization.signup
 
-import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -9,6 +8,7 @@ import com.example.galleryapp.R
 import com.example.galleryapp.base.BaseFragment
 import com.example.galleryapp.databinding.FragmentSignUpBinding
 import com.example.galleryapp.presentation.authorization.login.AuthContract
+import com.example.galleryapp.utils.enums.Destination
 import com.example.galleryapp.utils.setSafeOnClickListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -37,9 +37,14 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
             viewModel.uiState.collect { state ->
                 when (state) {
                     is AuthContract.AuthState.Success -> {
-                        Log.d("sign_state", "hello")
+                        binding.authorization.submitBtn.isClickable = true
                     }
-
+                    is AuthContract.AuthState.Loading -> {
+                        binding.authorization.submitBtn.isClickable = false
+                    }
+                    is AuthContract.AuthState.Failure -> {
+                        Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
+                    }
                     else -> {}
                 }
             }
@@ -58,6 +63,9 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
 
                     is AuthContract.AuthEffect.ShowToast -> {
                         Toast.makeText(requireContext(), effect.message, Toast.LENGTH_SHORT).show()
+                    }
+                    is AuthContract.AuthEffect.NavigateToHome -> {
+                        Navigation.findNavController(binding.root).navigate(Destination.HOME.fragmentId)
                     }
                 }
             }

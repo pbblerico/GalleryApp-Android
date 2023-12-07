@@ -27,4 +27,14 @@
     <string name="log_out">Log Out</string>
     <string name="theme">Theme</string>
     <string name="language">Language</string>
+
+    <string name="light_theme">Light</string>
+    <string name="dark_theme">Dark</string>
+    <string name="system_theme">System</string>
+
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Russian</item>
+    </string-array>
 </resources>

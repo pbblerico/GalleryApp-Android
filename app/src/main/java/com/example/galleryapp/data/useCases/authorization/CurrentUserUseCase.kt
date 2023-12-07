@@ -15,9 +15,4 @@ class CurrentUserInteraction @Inject constructor(val repo: AuthRepository): Curr
         return repo.currentUser
     }
 
-//    override fun observeAuthState(): Flow<FirebaseUser?> {
-//        return repo.observeAuthState()
-//    }
-
-
 }

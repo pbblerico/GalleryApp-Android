@@ -24,5 +24,7 @@ class AuthContract {
         data object NavigateToAnotherAuthMethod: AuthEffect()
         data object NavigateBack: AuthEffect()
         data class ShowToast(val message: String): AuthEffect()
+        data object NavigateToHome: AuthEffect()
+
     }
 }

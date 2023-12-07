@@ -12,6 +12,7 @@ dependencyResolutionManagement {
         mavenCentral()
         maven( "https://jitpack.io" )
     }
+
 }
 
 rootProject.name = "Gallery App"

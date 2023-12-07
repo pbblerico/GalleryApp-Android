@@ -1,9 +1,9 @@
 package com.example.galleryapp.data.repositories.authorization
 
-import android.util.Log
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
@@ -15,14 +15,15 @@ class AuthRepositoryImpl @Inject constructor(
     override suspend fun login(
         email: String,
         password: String
-    ): AuthResult? {
-        val response = firebaseAuth.signInWithEmailAndPassword(email, password)
-        Log.d("reposnse", "${response.result.user?.uid} erekldvadv;an;a")
-        return if (response.isSuccessful) {
-            response.result
-        } else {
-            throw Exception(response.exception)
-        }
+    ) {
+        val response = firebaseAuth.signInWithEmailAndPassword(email, password).await()
+
+//        Log.d("reposnse", "${response.isSuccessful} erekldvadv;an;a")
+//        return if (response.isSuccessful) {
+//            response.result
+//        } else {
+//            throw Exception(response.exception)
+//        }
     }
 
     override suspend fun signup(
@@ -30,12 +31,7 @@ class AuthRepositoryImpl @Inject constructor(
         email: String,
         password: String
     ): AuthResult? {
-        val response = firebaseAuth.createUserWithEmailAndPassword(email, password)
-        return if(response.isSuccessful) {
-            response.result
-        } else {
-            throw Exception(response.exception)
-        }
+        return firebaseAuth.createUserWithEmailAndPassword(email, password).await()
     }
 
     override fun logout() {

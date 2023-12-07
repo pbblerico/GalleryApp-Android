@@ -27,6 +27,12 @@
         <action
             android:id="@+id/action_homeFragment_to_folderFragment"
             app:destination="@id/folderFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_imageFragment"
+            app:destination="@id/imageFragment" >
+
+
+        </action>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -47,7 +53,11 @@
         android:id="@+id/folderFragment"
         android:name="com.example.galleryapp.presentation.folder.FolderFragment"
         android:label="fragment_folder"
-        tools:layout="@layout/fragment_folder" />
+        tools:layout="@layout/fragment_folder" >
+        <action
+            android:id="@+id/action_folderFragment_to_imageFragment"
+            app:destination="@id/imageFragment" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.galleryapp.presentation.settings.SettingsFragment"
@@ -68,5 +78,7 @@
         android:id="@+id/imageFragment"
         android:name="com.example.galleryapp.presentation.image.ImageFragment"
         android:label="fragment_image"
-        tools:layout="@layout/fragment_image" />
+        tools:layout="@layout/fragment_image">
+
+    </fragment>
 </navigation>

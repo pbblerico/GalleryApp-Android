@@ -1,6 +1,5 @@
 package com.example.galleryapp.presentation.authorization.login
 
-import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -44,24 +43,13 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>(R.layout.fragment_login)
             viewModel.uiState.collect{state ->
                 when(state) {
                     is AuthContract.AuthState.Success -> {
-                        Log.d("login_satte", "hereeeeee")
-                        Navigation.findNavController(binding.root).navigate(R.id.homeFragment)
-
-//                        val file = storageRef.child("users/${viewModel.loginUseCase.getCurrentUser()?.uid}/images/public/first.png")
-//                        val bitmap = (binding.image.drawable as BitmapDrawable).bitmap
-//                        val baos = ByteArrayOutputStream()
-//                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
-//                        val data = baos.toByteArray()
-
-//                        var uploadTask = file.putBytes(data)
-//                        uploadTask.addOnFailureListener {
-//                            // Handle unsuccessful uploads
-//                            Log.d("image load", it.message ?: "error")
-//                        }.addOnSuccessListener { taskSnapshot ->
-//                            // taskSnapshot.metadata contains file metadata such as size, content-type, etc.
-//                            // ...
-//                            Toast.makeText(requireContext(), "Added", Toast.LENGTH_SHORT).show()
-//                        }
+                        binding.authorization.submitBtn.isClickable = true
+                    }
+                    is AuthContract.AuthState.Loading -> {
+                        binding.authorization.submitBtn.isClickable = false
+                    }
+                    is AuthContract.AuthState.Failure -> {
+                        Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
                     }
                     else -> {}
                 }
@@ -80,6 +68,10 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>(R.layout.fragment_login)
                     is AuthContract.AuthEffect.ShowToast -> {
                         Toast.makeText(requireContext(), effect.message, Toast.LENGTH_SHORT).show()
                     }
+                    is AuthContract.AuthEffect.NavigateToHome -> {
+                        Navigation.findNavController(binding.root).navigate(R.id.homeFragment)
+                    }
+
                 }
             }
         }

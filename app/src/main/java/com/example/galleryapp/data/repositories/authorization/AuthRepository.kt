@@ -7,7 +7,7 @@ interface AuthRepository {
     val currentUser: FirebaseUser?
 
     //    fun observeAuthState(): Flow<FirebaseUser?>
-    suspend fun login(email: String, password: String): AuthResult?
+    suspend fun login(email: String, password: String)
 
     suspend fun signup(nickname: String, email: String, password: String): AuthResult?
     fun logout()
