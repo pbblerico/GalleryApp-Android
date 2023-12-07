@@ -24,12 +24,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.rv.adapter = pagingAdapter
 
         pagingAdapter.click = {
-
-//            Navigation.findNavController(binding.root).navigate(action)
             val bundle = Bundle()
-            bundle.putString("url", it?.urlSource?.original)
+            bundle.putInt("id", it?.id ?: 0)
             Navigation.findNavController(binding.root).navigate(Destination.IMAGE.fragmentId, bundle)
-
         }
 
         viewModel.data.observe(viewLifecycleOwner) {

@@ -16,7 +16,6 @@
             android:text="hello"
             android:backgroundTint="@color/primaryContainer"
             android:textColor="@color/onPrimary"
-            android:textAllCaps="true"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"

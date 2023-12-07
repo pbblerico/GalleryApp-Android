@@ -22,10 +22,7 @@
     </declare-styleable>
 
     <declare-styleable name="AuthorizationView">
-        <attr name="authorization_title" format="string">
-<!--            <enum name="LOGIN" value="login"/>-->
-<!--            <enum name="SIGN_UP" value="sign up"/>-->
-        </attr>
+        <attr name="authorization_method" format="string"/>
         <attr name="show_nickname_input" format="boolean"/>
     </declare-styleable>
 

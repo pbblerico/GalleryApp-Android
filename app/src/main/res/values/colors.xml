@@ -3,8 +3,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primary">@color/white</color>
-    <color name="onPrimary">#FFFFFF</color>
+    <color name="primary">#52DBCC</color>
+    <color name="onPrimary">#003732</color>
     <color name="primaryContainer">#73F8E8</color>
     <color name="onPrimaryContainer">#00201D</color>
     <color name="secondary">#4A635F</color>

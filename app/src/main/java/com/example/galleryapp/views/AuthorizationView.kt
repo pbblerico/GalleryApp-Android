@@ -25,16 +25,16 @@ class AuthorizationView @JvmOverloads constructor(
         setAttrs(attrs, R.styleable.AuthorizationView) { it ->
             binding.nickname.isVisible = it.getBoolean(R.styleable.AuthorizationView_show_nickname_input, false)
             //todo(make it enum)
-            val title =  it.getString(R.styleable.AuthorizationView_authorization_title)?.uppercase()
-            binding.authorizationTitle.text = title
-            binding.submitButton.button.text = title
-
-            var toOtherOption = "to "
-            title?.let {
-                toOtherOption += if(it.lowercase() == "login") "sign up"
-                else "login"
+            val title = it.getString(R.styleable.AuthorizationView_authorization_method)
+            if(title == "login") {
+                binding.authorizationTitle.text = context.getString(R.string.login)
+                binding.submitButton.button.text = context.getString(R.string.log_in_action)
+                binding.toOtherOption.text = context.getString(R.string.sign_up)
+            } else {
+                binding.authorizationTitle.text = context.getString(R.string.sign_up)
+                binding.submitButton.button.text = context.getString(R.string.sign_up_action)
+                binding.toOtherOption.text = context.getString(R.string.log_in_icon_text)
             }
-            binding.toOtherOption.text = toOtherOption
         }
     }
 }

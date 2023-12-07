@@ -8,7 +8,7 @@
     <com.example.galleryapp.views.AuthorizationView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:authorization_title="login"
+        app:authorization_method="login"
         android:id="@+id/authorization"
         />
 

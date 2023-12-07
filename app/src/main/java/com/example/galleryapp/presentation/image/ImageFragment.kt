@@ -13,7 +13,7 @@ class ImageFragment : BaseFragment<FragmentImageBinding>(R.layout.fragment_image
 
     override fun setUpViews() {
 
-        val received = arguments?.getString("url")
+        val received = arguments?.getInt("id")
 
         received?.let {
             binding.image.load(it){

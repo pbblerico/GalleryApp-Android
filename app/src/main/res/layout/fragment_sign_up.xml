@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:show_nickname_input="true"
-        app:authorization_title="@string/sign_up"
+        app:authorization_method="sign up"
         />
 
 </FrameLayout>

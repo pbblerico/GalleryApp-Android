@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="name">имя</string>
+    <string name="name">Имя</string>
     <string name="home_bottom_nav_text">Home</string>
     <string name="account_bottom_nav_text">Аккаунт</string>
     <string name="search_bottom_nav_text">Поиск</string>
     <string name="settings_icon_text">Настройки</string>
     <string name="log_out_icon_text">Выход</string>
-    <string name="log_in_icon_text">Выход</string>
+    <string name="log_in_icon_text">Вход</string>
+    <string name="log_in_action">Войти</string>
+    <string name="sign_up_action">Зарегистрироваться</string>
     <string name="sign_up">Регистрация</string>
     <string name="password">Пароль</string>
     <string name="email">Почта</string>
-    <string name="login">Login</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="login">Логин</string>
     <string name="saved">Сохранено</string>
-    <string name="created">created</string>
+    <string name="created">Создано</string>
     <string name="nothing_found">Пусто...</string>
     <string name="previous">Назад</string>
     <string name="next">Вперед</string>

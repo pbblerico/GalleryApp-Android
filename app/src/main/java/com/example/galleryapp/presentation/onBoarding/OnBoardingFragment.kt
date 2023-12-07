@@ -17,7 +17,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class OnBoardingFragment : BaseFragment<FragmentOnBoardingBinding>(R.layout.fragment_on_boarding) {
+class OnBoardingFragment : BaseFragment<com.example.galleryapp.databinding.FragmentOnBoardingBinding>(R.layout.fragment_on_boarding) {
     private val viewModel: OnBoardingViewModel by viewModels()
     override fun getViewBinding(): FragmentOnBoardingBinding =
         FragmentOnBoardingBinding.inflate(layoutInflater)

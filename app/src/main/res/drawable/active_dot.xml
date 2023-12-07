@@ -5,5 +5,5 @@
     android:thickness="3dp"
     android:useLevel="false">
 
-    <solid android:color="@color/primaryContainer"/>
+    <solid android:color="@color/primary"/>
 </shape>
