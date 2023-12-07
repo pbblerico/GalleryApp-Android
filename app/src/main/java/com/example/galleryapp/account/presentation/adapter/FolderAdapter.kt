@@ -10,7 +10,7 @@ import com.example.galleryapp.databinding.ItemFolderBinding
 
 class FolderAdapter: ListAdapter<Folder, FolderAdapter.FolderViewHolder>(FolderDiffUtils) {
 
-    var click: (() -> Unit)? = null
+    var click: ((String?) -> Unit)? = null
     object FolderDiffUtils: DiffUtil.ItemCallback<Folder>() {
         override fun areItemsTheSame(oldItem: Folder, newItem: Folder): Boolean {
             return oldItem == newItem
@@ -26,7 +26,7 @@ class FolderAdapter: ListAdapter<Folder, FolderAdapter.FolderViewHolder>(FolderD
             binding.folderTitle.text = item.name
 
             itemView.setOnClickListener {
-                click?.invoke()
+                click?.invoke(item.name)
             }
         }
     }

@@ -22,14 +22,19 @@ class ImageFragment : BaseFragment<FragmentImageBinding>(R.layout.fragment_image
         binding.toolbar.isClickable = viewModel.isAuthorized()
 
 
-        val received = arguments?.getInt("id")
+        val receivedId = arguments?.getInt("id")
+        val receivedUrl = arguments?.getString("url")
 
-        received?.let {
+        receivedId?.let {
 
-            viewModel.handleEvent(ImageContract.ImageEvent.LoadImage(it))
+            viewModel.handleEvent(ImageContract.ImageEvent.LoadImageFromApi(it))
 
             binding.toolbar.trailingIconAction = {
                 viewModel.handleEvent(ImageContract.ImageEvent.SaveImage(it))
+            }
+        } ?: {
+            receivedUrl?.let {
+                viewModel.handleEvent(ImageContract.ImageEvent.LoadImageFromUrl(it))
             }
         }
     }
@@ -41,7 +46,7 @@ class ImageFragment : BaseFragment<FragmentImageBinding>(R.layout.fragment_image
                 when(state) {
                     is ImageContract.ImageState.LoadSuccess -> {
                         binding.loading.isVisible = false
-                        binding.image.load(state.photo?.urlSource?.original){
+                        binding.image.load(state.photo){
                             crossfade(true)
                             placeholder(R.drawable.placeholder)
                             scale(Scale.FILL)

@@ -35,6 +35,11 @@
 
     <string name="lets_start" translatable="false">Let\'s start</string>
 
+    <string name="public_folder">Public</string>
+    <string name="private_folder">Private</string>
+    <string name="private_enum">private</string>
+    <string name="public_enum">public</string>
+
 
     <string-array name="languages">
         <item>English</item>

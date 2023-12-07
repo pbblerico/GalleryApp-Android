@@ -30,12 +30,16 @@ class ImageViewModel @Inject constructor(
 
     override fun handleEvent(event: ImageContract.ImageEvent) {
         when (event) {
-            is ImageContract.ImageEvent.LoadImage -> {
+            is ImageContract.ImageEvent.LoadImageFromApi -> {
                 loadImage(event.id)
             }
 
             is ImageContract.ImageEvent.SaveImage -> {
                 saveImage(event.id)
+            }
+
+            is ImageContract.ImageEvent.LoadImageFromUrl -> {
+                setState(ImageContract.ImageState.LoadSuccess(photo = event.url))
             }
         }
     }
@@ -51,7 +55,7 @@ class ImageViewModel @Inject constructor(
             setState(ImageContract.ImageState.Loading)
             try {
                 val result = id?.let { getPictureById.execute(it) }
-                setState(ImageContract.ImageState.LoadSuccess(result))
+                setState(ImageContract.ImageState.LoadSuccess(result?.urlSource?.original))
             } catch (e: Exception) {
                 setState(ImageContract.ImageState.LoadFailure(e.message))
             }
