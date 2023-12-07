@@ -3,6 +3,8 @@ package com.example.galleryapp.data.di.useCase
 import com.example.galleryapp.data.repositories.authorization.AuthRepository
 import com.example.galleryapp.data.useCases.authorization.CurrentUserInteraction
 import com.example.galleryapp.data.useCases.authorization.CurrentUserUseCase
+import com.example.galleryapp.data.useCases.authorization.LogOutInteraction
+import com.example.galleryapp.data.useCases.authorization.LogOutUseCase
 import com.example.galleryapp.data.useCases.authorization.LoginInteraction
 import com.example.galleryapp.data.useCases.authorization.LoginUseCase
 import com.example.galleryapp.data.useCases.authorization.SignUpInteraction
@@ -25,4 +27,8 @@ object AuthUseCaseModule {
 
     @Provides
     fun provideCurrentUserUseCase(repo: AuthRepository): CurrentUserUseCase = CurrentUserInteraction(repo)
+
+
+    @Provides
+    fun logOutUseCase(repo: AuthRepository): LogOutUseCase = LogOutInteraction(repo)
 }

@@ -21,6 +21,12 @@ class ToolbarView @JvmOverloads constructor(
     var startIconAction: (() -> Unit)? = null
     var trailingIconAction: (() -> Unit)? = null
 
+    var trailingIconVisibility: Boolean
+        get() = binding.trailingIcon.isVisible
+        set(value) {
+            binding.trailingIcon.isVisible = value
+        }
+
     //todo(add access to elements)
     init {
         setAttrs(attrs, R.styleable.ToolbarView) {

@@ -26,6 +26,9 @@ class AccountFragment : BaseFragment<FragmentAccountBinding>(R.layout.fragment_a
             Folder(2, "four", ""),
             Folder(3, "three", ""),
         )
+        val storage =
+
+
         adapter.submitList(list)
         adapter.click = {
             Navigation.findNavController(binding.root).navigate(R.id.folderFragment)
