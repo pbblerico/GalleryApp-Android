@@ -3,9 +3,9 @@ package com.example.galleryapp.base
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.galleryapp.shared.base.UiEffect
-import com.example.galleryapp.shared.base.UiEvent
-import com.example.galleryapp.shared.base.UiState
+import com.example.galleryapp.utils.UiEffect
+import com.example.galleryapp.utils.UiEvent
+import com.example.galleryapp.utils.UiState
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow

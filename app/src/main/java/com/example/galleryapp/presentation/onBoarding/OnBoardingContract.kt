@@ -1,8 +1,8 @@
 package com.example.galleryapp.presentation.onBoarding
 
-import com.example.galleryapp.shared.base.UiEffect
-import com.example.galleryapp.shared.base.UiEvent
-import com.example.galleryapp.shared.base.UiState
+import com.example.galleryapp.utils.UiEffect
+import com.example.galleryapp.utils.UiEvent
+import com.example.galleryapp.utils.UiState
 
 class OnBoardingContract {
     sealed class OnBoardingState : UiState {

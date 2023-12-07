@@ -18,7 +18,7 @@
         android:id="@+id/avatar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:text="@string/app_name" />
+        app:text="funny_user" />
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -28,45 +28,6 @@
         android:scrollbars="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/item_folder" />
-
-
-    <!--    <com.example.galleryapp.views.ToolbarView-->
-    <!--        android:id="@+id/toolbar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        app:toolbar_title="hello аыоваыожалатыжвожповажпожваполжвыапожвыапловжапо"-->
-    <!--        app:toolbar_back_color="@color/secondaryContainer"-->
-    <!--        app:trailing_icon="@drawable/ic_login"-->
-    <!--        app:trailing_icon_visibility="true"/>-->
-
-    <!--    <com.example.galleryapp.views.AvatarImageView-->
-    <!--        android:id="@+id/avatar"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        app:text="@string/app_name"-->
-    <!--        />-->
-
-    <!--    <com.google.android.material.chip.ChipGroup-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_gravity="center">-->
-
-    <!--        <com.google.android.material.chip.Chip-->
-    <!--            android:id="@+id/created"-->
-    <!--            style="@style/Widget.MaterialComponents.Chip.Choice"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="@string/created"/>-->
-
-    <!--        <com.google.android.material.chip.Chip-->
-    <!--            android:id="@+id/saved"-->
-    <!--            style="@style/Widget.MaterialComponents.Chip.Choice"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="@string/saved"/>-->
-
-
-    <!--    </com.google.android.material.chip.ChipGroup>-->
 
 
 </LinearLayout>

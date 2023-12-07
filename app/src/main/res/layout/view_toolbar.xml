@@ -16,8 +16,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_arrow_back"
-                    android:padding="16dp"
-                    app:tint="@color/white" />
+                    android:padding="16dp"/>
 
                 <TextView
                     android:id="@+id/toolbar_title"
@@ -38,8 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:src="@drawable/ic_arrow_back"
-                    app:tint="@color/white"/>
+                    android:src="@drawable/ic_arrow_back"/>
 
             </LinearLayout>
 

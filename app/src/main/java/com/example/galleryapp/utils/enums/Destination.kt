@@ -8,7 +8,6 @@ enum class Destination(@IdRes val fragmentId: Int) {
     FOLDER(R.id.folderFragment),
     ACCOUNT(R.id.accountFragment),
     HOME(R.id.homeFragment),
-    SEARCH(R.id.searchFragment),
     SETTINGS(R.id.settingsFragment),
     LOGIN(R.id.loginFragment),
     SIGN_UP(R.id.signUpFragment),

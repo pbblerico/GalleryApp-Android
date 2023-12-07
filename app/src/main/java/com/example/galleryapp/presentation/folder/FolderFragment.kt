@@ -52,6 +52,7 @@ class FolderFragment : BaseFragment<FragmentFolderBinding>(R.layout.fragment_fol
         }
 
 
+
         val pickMedia =
             registerForActivityResult(ActivityResultContracts.PickMultipleVisualMedia(10)) { uri ->
                 // Callback is invoked after the user selects a media item or closes the

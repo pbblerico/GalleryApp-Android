@@ -9,4 +9,7 @@ interface PicturesRepository {
 
     suspend fun getCuratedPictures(page: Int = 1, perPage: Int = 20): PictureResponse?
     var pictureFlow: Flow<PagingData<Photo>>
+
+
+    suspend fun getImages(path: String, onSuccess: (List<String>) -> Unit)
 }

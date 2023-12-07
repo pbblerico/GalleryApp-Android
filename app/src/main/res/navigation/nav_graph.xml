@@ -40,11 +40,6 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
     <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.example.galleryapp.presentation.search.SearchFragment"
-        android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
-    <fragment
         android:id="@+id/signUpFragment"
         android:name="com.example.galleryapp.presentation.authorization.signup.SignUpFragment"
         android:label="fragment_sign_up"

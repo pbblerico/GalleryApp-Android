@@ -8,13 +8,12 @@ import com.example.galleryapp.R
 import com.example.galleryapp.account.presentation.adapter.PicturePagingAdapter
 import com.example.galleryapp.base.BaseFragment
 import com.example.galleryapp.databinding.FragmentHomeBinding
-import com.example.galleryapp.presentation.image.ImageFragment
 import com.example.galleryapp.utils.enums.Destination
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private val viewModel: HomeViewModel by viewModels()
     private val pagingAdapter = PicturePagingAdapter()
     override fun getViewBinding(): FragmentHomeBinding = FragmentHomeBinding.inflate(layoutInflater)
@@ -29,8 +28,7 @@ class HomeFragment: BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 //            Navigation.findNavController(binding.root).navigate(action)
             val bundle = Bundle()
             bundle.putString("url", it?.urlSource?.original)
-            ImageFragment().arguments = bundle
-            Navigation.findNavController(binding.root).navigate(Destination.IMAGE.fragmentId)
+            Navigation.findNavController(binding.root).navigate(Destination.IMAGE.fragmentId, bundle)
 
         }
 

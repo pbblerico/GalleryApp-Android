@@ -1,6 +1,5 @@
 package com.example.galleryapp.presentation.image
 
-import android.util.Log
 import coil.load
 import coil.size.Scale
 import com.example.galleryapp.R
@@ -17,7 +16,6 @@ class ImageFragment : BaseFragment<FragmentImageBinding>(R.layout.fragment_image
         val received = arguments?.getString("url")
 
         received?.let {
-            Log.d("url", it)
             binding.image.load(it){
                 crossfade(true)
                 placeholder(R.drawable.anonymous)

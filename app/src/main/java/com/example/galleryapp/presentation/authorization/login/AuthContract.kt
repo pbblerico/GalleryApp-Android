@@ -1,12 +1,12 @@
 package com.example.galleryapp.presentation.authorization.login
 
-import com.example.galleryapp.shared.base.UiEffect
-import com.example.galleryapp.shared.base.UiEvent
-import com.example.galleryapp.shared.base.UiState
+import com.example.galleryapp.utils.UiEffect
+import com.example.galleryapp.utils.UiEvent
+import com.example.galleryapp.utils.UiState
 
 
 class AuthContract {
-    sealed class AuthState: UiState  {
+    sealed class AuthState: UiState {
         data object Idle: AuthState()
         data object Loading: AuthState()
         data class Success(val uid: String?): AuthState()

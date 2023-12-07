@@ -4,6 +4,7 @@ import com.example.galleryapp.PicturePagingSource
 import com.example.galleryapp.data.network.api.PicturesApi
 import com.example.galleryapp.data.repositories.pictures.PicturesRepository
 import com.example.galleryapp.data.repositories.pictures.PicturesRepositoryImpl
+import com.google.firebase.storage.StorageReference
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,5 +21,5 @@ object PictureRepositoryModule {
 
     @Singleton
     @Provides
-    fun providePictureRepository(api: PicturesApi, pagingSource: PicturePagingSource): PicturesRepository = PicturesRepositoryImpl(api, pagingSource)
+    fun providePictureRepository(api: PicturesApi, pagingSource: PicturePagingSource, storage: StorageReference): PicturesRepository = PicturesRepositoryImpl(api, pagingSource, storage)
 }

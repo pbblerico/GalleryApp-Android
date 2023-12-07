@@ -1,5 +1,7 @@
-package com.example.galleryapp.shared.base
+package com.example.galleryapp.utils
 
 interface UiState
+
 interface UiEvent
+
 interface UiEffect
