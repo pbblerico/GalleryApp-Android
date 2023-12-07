@@ -9,8 +9,6 @@ import com.example.galleryapp.R
 import com.example.galleryapp.base.BaseFragment
 import com.example.galleryapp.databinding.FragmentLoginBinding
 import com.example.galleryapp.utils.setSafeOnClickListener
-import com.google.firebase.Firebase
-import com.google.firebase.storage.storage
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -46,9 +44,7 @@ class LoginFragment: BaseFragment<FragmentLoginBinding>(R.layout.fragment_login)
             viewModel.uiState.collect{state ->
                 when(state) {
                     is AuthContract.AuthState.Success -> {
-                        Log.d("login_state", "hello")
-
-                        val storageRef = Firebase.storage.reference
+                        Log.d("login_satte", "hereeeeee")
                         Navigation.findNavController(binding.root).navigate(R.id.homeFragment)
 
 //                        val file = storageRef.child("users/${viewModel.loginUseCase.getCurrentUser()?.uid}/images/public/first.png")

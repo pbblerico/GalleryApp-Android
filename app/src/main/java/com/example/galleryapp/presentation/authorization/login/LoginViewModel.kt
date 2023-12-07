@@ -1,8 +1,11 @@
 package com.example.galleryapp.presentation.authorization.login
 
+import android.util.Log
+import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.base.BaseViewModel
 import com.example.galleryapp.data.useCases.authorization.LoginUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -17,6 +20,7 @@ class LoginViewModel @Inject constructor(
     override fun handleEvent(event: AuthContract.AuthEvent) {
         when (event) {
             is AuthContract.AuthEvent.OnAuthButtonClick -> {
+                Log.d("login_methid", "login_met")
                 login(event.email, event.password)
             }
 
@@ -31,18 +35,27 @@ class LoginViewModel @Inject constructor(
     }
 
     private fun login(email: String, password: String) {
-            setState (AuthContract.AuthState.Loading)
-            launch(
-                request = {
-                    loginUseCase.execute(email, password)
-                },
-                onSuccess = {result ->
-                    setState(AuthContract.AuthState.Success(result?.user?.uid))
-                },
-                onError = {e ->
-                    setState(AuthContract.AuthState.Failure(e))
-                }
-            )
+        setState(AuthContract.AuthState.Loading)
+        viewModelScope.launch {
+            try {
+                val response = loginUseCase.execute(email, password)
+                Log.d("login_methid", "login try")
+                setState(AuthContract.AuthState.Success(response?.user?.uid))
+            } catch (e: Exception) {
+                setState(AuthContract.AuthState.Failure(e.message))
+            }
+        }
+//            launch(
+//                request = {
+//                    loginUseCase.execute(email, password)
+//                },
+//                onSuccess = {result ->
+//                    setState(AuthContract.AuthState.Success(result?.user?.uid))
+//                },
+//                onError = {e ->
+//                    setState(AuthContract.AuthState.Failure(e))
+//                }
+//            )
     }
 
 }

@@ -13,7 +13,7 @@ import javax.inject.Inject
 class PicturesRepositoryImpl @Inject constructor(
     private val api: PicturesApi, private val pagingSource: PicturePagingSource
 ) : PicturesRepository {
-    override suspend fun getCuratedPictures(page: Int, per_page: Int): PictureResponse? {
+    override suspend fun getCuratedPictures(page: Int, perPage: Int): PictureResponse? {
         val result = api.getCuratedPhotos(page)
         return if (result.isSuccessful) {
             result.body()

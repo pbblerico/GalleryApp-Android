@@ -1,5 +1,6 @@
 package com.example.galleryapp.data.repositories.authorization
 
+import android.util.Log
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -7,38 +8,21 @@ import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
-//    private val preferencesUtils: PreferencesUtils
 ) : AuthRepository {
     override val currentUser: FirebaseUser?
         get() = firebaseAuth.currentUser
-
-//    override fun observeAuthState() = callbackFlow {
-//        val authStateListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
-//            val user = firebaseAuth.currentUser
-//            trySend(user)
-//        }
-//
-//        firebaseAuth.addAuthStateListener(authStateListener)
-//
-//        awaitClose {
-//            firebaseAuth.removeAuthStateListener(authStateListener)
-//        }
-//    }
 
     override suspend fun login(
         email: String,
         password: String
     ): AuthResult? {
         val response = firebaseAuth.signInWithEmailAndPassword(email, password)
+        Log.d("reposnse", "${response.result.user?.uid} erekldvadv;an;a")
         return if (response.isSuccessful) {
             response.result
         } else {
             throw Exception(response.exception)
         }
-    }
-
-    private fun getToken() {
-
     }
 
     override suspend fun signup(
