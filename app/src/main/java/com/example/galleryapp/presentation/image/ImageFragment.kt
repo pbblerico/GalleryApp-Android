@@ -34,7 +34,12 @@ class ImageFragment : BaseFragment<FragmentImageBinding>(R.layout.fragment_image
             }
         } ?: {
             receivedUrl?.let {
-                viewModel.handleEvent(ImageContract.ImageEvent.LoadImageFromUrl(it))
+//            viewModel.handleEvent(ImageContract.ImageEvent.LoadImageFromUrl(it))
+                binding.image.load(it) {
+                    crossfade(true)
+                    placeholder(R.drawable.placeholder)
+                    scale(Scale.FILL)
+                }
             }
         }
     }
