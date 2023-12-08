@@ -7,7 +7,6 @@ import com.example.galleryapp.data.preferences.PreferencesUtils
 import com.example.galleryapp.data.useCases.authorization.CurrentUserUseCase
 import com.example.galleryapp.data.useCases.authorization.LogOutUseCase
 import com.example.galleryapp.utils.enums.Languages
-import com.example.galleryapp.utils.enums.Theme
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,9 +27,6 @@ class SettingsViewModel @Inject constructor(
         return preferencesUtils.getString(Preferences.LANGUAGE, Languages.EN.id)
     }
 
-    fun getCurrentTheme(): Int {
-        return preferencesUtils.getInt(Preferences.THEME, Theme.SYSTEM.system)
-    }
     fun loggedIn(): Boolean {
         return currentUser.getCurrentUser() != null
     }

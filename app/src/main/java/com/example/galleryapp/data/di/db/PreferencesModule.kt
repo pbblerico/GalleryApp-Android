@@ -1,8 +1,10 @@
-package com.example.galleryapp.data.preferences
+package com.example.galleryapp.data.di.db
 
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
+import com.example.galleryapp.data.preferences.Preferences
+import com.example.galleryapp.data.preferences.PreferencesUtils
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

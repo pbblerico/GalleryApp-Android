@@ -1,10 +1,14 @@
 package com.example.galleryapp.data.di.db
 
+import com.example.galleryapp.data.repositories.firebaseRD.FRBDUser
+import com.example.galleryapp.data.repositories.firebaseRD.FRDBUserRepository
+import com.example.galleryapp.data.repositories.firebaseRD.FRDBUserRepositoryImpl
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.storage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,13 +25,18 @@ object FirebaseModule {
 
     @Provides
     @Singleton
-    fun provideFirebaseDatabase(): DatabaseReference = FirebaseDatabase.getInstance().getReference("Users")
+    fun provideFirebaseDatabase(): FirebaseDatabase = FirebaseDatabase.getInstance()
 
     @Provides
     @Singleton
-    fun provideFirebaseStorage(): FirebaseStorage = FirebaseStorage.getInstance()
+    fun provideDatabaseReference(database: FirebaseDatabase): DatabaseReference = database.getReference(FRBDUser.ROOT.value)
 
     @Provides
     @Singleton
-    fun provideFirebaseStorageRef(storage: FirebaseStorage): StorageReference = storage.getReference("app")
+    fun provideFirebaseStorageRef(): StorageReference = Firebase.storage.reference
+
+    @Provides
+    @Singleton
+    fun provideFRBDUserRepository(dbRef: DatabaseReference): FRDBUserRepository = FRDBUserRepositoryImpl(dbRef)
+
 }

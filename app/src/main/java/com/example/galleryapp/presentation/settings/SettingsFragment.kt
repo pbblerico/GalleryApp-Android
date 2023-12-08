@@ -24,7 +24,6 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment
 
     override fun setUpViews() {
 
-
         binding.logout.isVisible = viewModel.loggedIn()
         binding.toolbar.trailingIconVisibility = !viewModel.loggedIn()
 
@@ -84,9 +83,7 @@ class SettingsFragment : BaseFragment<FragmentSettingsBinding>(R.layout.fragment
     }
 
 
-    override fun observeState() {
-
-    }
+    override fun observeState() {}
 
     private fun updateTheme(theme: Int) {
         AppCompatDelegate.setDefaultNightMode(theme)

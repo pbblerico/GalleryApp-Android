@@ -24,7 +24,12 @@ class LoginViewModel @Inject constructor(
     override fun handleEvent(event: AuthContract.AuthEvent) {
         when (event) {
             is AuthContract.AuthEvent.OnAuthButtonClick -> {
-                login(event.email, event.password)
+                if(!validateInputs(event.email, event.password)) {
+                    setEffect(AuthContract.AuthEffect.ShowToast("Please, fill all fields"))
+                    setState(AuthContract.AuthState.Idle)
+                } else {
+                    login(event.email, event.password)
+                }
             }
 
             is AuthContract.AuthEvent.OnSignUpClick -> {
@@ -37,22 +42,28 @@ class LoginViewModel @Inject constructor(
         }
     }
 
+    private fun validateInputs(email: String, password: String): Boolean {
+        return !(email.isBlank() || password.isBlank())
+    }
+
+
     fun saveLogs() {
         preferencesUtils.saveBoolean(Preferences.AUTHORIZED, true)
     }
 
     private fun login(email: String, password: String) {
         setState(AuthContract.AuthState.Loading)
-        viewModelScope.launch {
 
-            loginUseCase.execute(email, password)
-            if(getCurrentUser.getCurrentUser() != null) {
+        viewModelScope.launch {
+            try {
+                loginUseCase.execute(email, password)
+
                 setState(AuthContract.AuthState.Success("success"))
                 setEffect(AuthContract.AuthEffect.NavigateToHome)
-            } else {
-                setState(AuthContract.AuthState.Failure("error"))
+            } catch (e: Exception) {
+                setState(AuthContract.AuthState.Idle)
+                setEffect(AuthContract.AuthEffect.ShowToast(e.message.orEmpty()))
             }
-
         }
     }
 

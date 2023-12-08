@@ -5,8 +5,7 @@ import com.example.galleryapp.utils.Resource
 
 interface FoldersRepository {
     suspend fun getPrivateFolders(
-        authorUid: String?,
-        onResult: (Resource<List<Folder>>) -> Unit
+        authorUid: String?, onResult: (Resource<List<Folder>>) -> Unit
     )
 
 

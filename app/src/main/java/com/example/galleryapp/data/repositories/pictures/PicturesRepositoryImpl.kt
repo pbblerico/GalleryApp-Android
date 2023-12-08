@@ -3,7 +3,6 @@ package com.example.galleryapp.data.repositories.pictures
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.example.galleryapp.PicturePagingSource
 import com.example.galleryapp.data.models.Image
 import com.example.galleryapp.data.models.Photo
 import com.example.galleryapp.data.models.PictureResponse
@@ -20,7 +19,7 @@ class PicturesRepositoryImpl @Inject constructor(
     private val storage: StorageReference
 ) : PicturesRepository {
     override suspend fun getCuratedPictures(page: Int, perPage: Int): PictureResponse? {
-        val result = api.getCuratedPhotos(page)
+        val result = api.getCuratedPhotos(page, perPage)
         return if (result.isSuccessful) {
             result.body()
         } else throw Exception(result.errorBody().toString())

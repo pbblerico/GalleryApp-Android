@@ -2,6 +2,7 @@ package com.example.galleryapp.data.repositories.folder
 
 import com.example.galleryapp.data.models.Folder
 import com.example.galleryapp.utils.Resource
+import com.example.galleryapp.utils.enums.FolderType
 import com.google.firebase.Firebase
 import com.google.firebase.storage.storage
 

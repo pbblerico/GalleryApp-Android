@@ -1,6 +1,7 @@
 package com.example.galleryapp.data.di.useCase
 
 import com.example.galleryapp.data.repositories.authorization.AuthRepository
+import com.example.galleryapp.data.repositories.firebaseRD.FRDBUserRepository
 import com.example.galleryapp.data.useCases.authorization.CurrentUserInteraction
 import com.example.galleryapp.data.useCases.authorization.CurrentUserUseCase
 import com.example.galleryapp.data.useCases.authorization.LogOutInteraction
@@ -23,7 +24,7 @@ object AuthUseCaseModule {
     fun provideLoginUseCase(repo: AuthRepository): LoginUseCase = LoginInteraction(repo)
 
     @Provides
-    fun provideSignUpUseCase(repo: AuthRepository): SignUpUseCase = SignUpInteraction(repo)
+    fun provideSignUpUseCase(authRepo: AuthRepository, userRepo: FRDBUserRepository): SignUpUseCase = SignUpInteraction(authRepo, userRepo)
 
     @Provides
     fun provideCurrentUserUseCase(repo: AuthRepository): CurrentUserUseCase = CurrentUserInteraction(repo)

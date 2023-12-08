@@ -8,7 +8,6 @@ import android.widget.FrameLayout
 import com.example.galleryapp.R
 import com.example.galleryapp.databinding.ViewProgressButtonBinding
 import com.example.galleryapp.utils.setSafeOnClickListener
-import com.google.android.material.button.MaterialButton
 
 class ProgressButtonView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
@@ -17,28 +16,26 @@ class ProgressButtonView @JvmOverloads constructor(
     private val binding: ViewProgressButtonBinding =
         ViewProgressButtonBinding.inflate(LayoutInflater.from(context), this)
 
-    private var loading = false
     var action: (() ->Unit)? = null
-    val button: MaterialButton = binding.progressButton
+
+    var buttonTitle: String
+        get() = binding.progressButton.text.toString()
+        set(value) {
+            binding.progressButton.text = value
+        }
 
     init {
         setAttrs(attrs, R.styleable.ProgressButtonView) {
             binding.progressButton.text = it.getString(R.styleable.ProgressButtonView_button_title)
         }
 
-        binding.progressButton.setSafeOnClickListener { setLoading() }
+        binding.progressButton.setSafeOnClickListener { action?.invoke() }
     }
 
 
-    fun setLoading() {
-        loading = !loading
-        if (loading) {
-            action?.invoke()
-            binding.progressAnimation.visibility = View.VISIBLE
-            binding.progressButton.textScaleX = 0f
-        } else {
-            binding.progressAnimation.visibility = View.GONE
-            binding.progressButton.textScaleX = 1f
-        }
+    fun setLoading(loading: Boolean) {
+        binding.progressAnimation.visibility = if (loading) View.VISIBLE else View.GONE
+        binding.progressButton.isEnabled = !loading
+        binding.progressButton.textScaleX = if (loading) 0f else 1f
     }
 }

@@ -8,10 +8,11 @@
     tools:context=".presentation.account.AccountFragment">
 
   <com.example.galleryapp.views.ToolbarView
+      android:id="@+id/toolbar"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:trailing_icon="@drawable/ic_add"
-      app:trailing_icon_visibility="false"
+      app:trailing_icon_visibility="true"
       />
 
     <com.example.galleryapp.views.AvatarImageView

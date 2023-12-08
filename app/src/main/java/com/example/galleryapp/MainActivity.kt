@@ -1,6 +1,5 @@
 package com.example.galleryapp
 
-import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
@@ -30,8 +29,6 @@ class MainActivity : AppCompatActivity() {
 
 
         setContentView(binding.root)
-
-        sharedPref = this.getPreferences(Context.MODE_PRIVATE) ?: return
 
 
         val nav = findNavController(R.id.nav_host_fragment)

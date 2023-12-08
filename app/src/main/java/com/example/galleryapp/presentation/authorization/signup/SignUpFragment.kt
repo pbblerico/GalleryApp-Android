@@ -37,18 +37,18 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
             viewModel.uiState.collect { state ->
                 when (state) {
                     is AuthContract.AuthState.Success -> {
-                        binding.authorization.submitBtn.isClickable = true
                         viewModel.saveLogs()
                         requireActivity().recreate()
                     }
                     is AuthContract.AuthState.Loading -> {
-                        binding.authorization.submitBtn.isClickable = false
                     }
                     is AuthContract.AuthState.Failure -> {
                         Toast.makeText(requireContext(), state.message, Toast.LENGTH_SHORT).show()
                     }
-                    else -> {}
+                    is AuthContract.AuthState.Idle -> {
+                    }
                 }
+                binding.authorization.submitBtn.setLoading(state is AuthContract.AuthState.Loading)
             }
         }
 
@@ -78,6 +78,7 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(R.layout.fragment_sig
         val email = binding.authorization.emailET.text.toString().trim()
         val password = binding.authorization.passwordET.text.toString().trim()
         val nickname = binding.authorization.nicknameET.text.toString().trim()
+
 
         viewModel.handleEvent(
             AuthContract.AuthEvent.OnAuthButtonClick(

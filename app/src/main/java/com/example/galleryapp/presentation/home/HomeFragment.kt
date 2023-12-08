@@ -32,6 +32,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         viewModel.data.observe(viewLifecycleOwner) {
             pagingAdapter.submitData(lifecycle, it)
         }
+
+
     }
 
     override fun observeState() {

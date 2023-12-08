@@ -39,6 +39,7 @@
     <string name="private_folder">Private</string>
     <string name="private_enum">private</string>
     <string name="public_enum">public</string>
+    <string name="save">save</string>
 
 
     <string-array name="languages">

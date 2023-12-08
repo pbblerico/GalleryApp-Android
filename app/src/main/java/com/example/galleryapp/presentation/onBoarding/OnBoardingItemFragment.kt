@@ -11,10 +11,6 @@ import com.example.galleryapp.utils.enums.OnBoardingElement
 class OnBoardingItemFragment(private val onBoardingElement: OnBoardingElement?): Fragment() {
     private lateinit var binding: FragmentOnBoardingItemBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

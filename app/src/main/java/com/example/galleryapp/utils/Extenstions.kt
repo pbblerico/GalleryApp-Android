@@ -9,3 +9,4 @@ fun View.setSafeOnClickListener(onSafeClick: (View) -> Unit) {
     }
     setOnClickListener(safeClickListener)
 }
+

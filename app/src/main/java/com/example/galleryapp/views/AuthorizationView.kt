@@ -28,11 +28,11 @@ class AuthorizationView @JvmOverloads constructor(
             val title = it.getString(R.styleable.AuthorizationView_authorization_method)
             if(title == "login") {
                 binding.authorizationTitle.text = context.getString(R.string.login)
-                binding.submitButton.button.text = context.getString(R.string.log_in_action)
+                binding.submitButton.buttonTitle = context.getString(R.string.log_in_action)
                 binding.toOtherOption.text = context.getString(R.string.sign_up)
             } else {
                 binding.authorizationTitle.text = context.getString(R.string.sign_up)
-                binding.submitButton.button.text = context.getString(R.string.sign_up_action)
+                binding.submitButton.buttonTitle = context.getString(R.string.sign_up_action)
                 binding.toOtherOption.text = context.getString(R.string.log_in_icon_text)
             }
         }
