@@ -18,4 +18,11 @@ interface PicturesApi {
     suspend fun getPhotoById(
         @Path("id") id: Int
     ): Response<Photo>
+
+    @GET("search")
+    suspend fun searchForPhotos(
+        @Query("query") query: String,
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int
+    ): Response<PictureResponse>
 }
