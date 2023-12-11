@@ -1,4 +1,4 @@
-package com.example.galleryapp
+package com.example.galleryapp.presentation.main
 
 import androidx.lifecycle.ViewModel
 import com.example.galleryapp.data.preferences.Preferences

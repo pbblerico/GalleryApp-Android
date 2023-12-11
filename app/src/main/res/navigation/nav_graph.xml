@@ -7,7 +7,7 @@
 
     <activity
         android:id="@+id/mainActivity"
-        android:name="com.example.galleryapp.MainActivity"
+        android:name="com.example.galleryapp.presentation.main.MainActivity"
         android:label="activity_main"
         tools:layout="@layout/activity_main" />
     <fragment

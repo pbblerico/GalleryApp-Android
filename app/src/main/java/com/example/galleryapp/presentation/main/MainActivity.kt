@@ -1,4 +1,4 @@
-package com.example.galleryapp
+package com.example.galleryapp.presentation.main
 
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.galleryapp.R
 import com.example.galleryapp.databinding.ActivityMainBinding
 import com.example.galleryapp.utils.enums.Destination
 import com.example.galleryapp.utils.enums.MenuItems
