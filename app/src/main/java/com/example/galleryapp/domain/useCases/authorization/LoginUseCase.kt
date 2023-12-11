@@ -1,4 +1,4 @@
-package com.example.galleryapp.data.useCases.authorization
+package com.example.galleryapp.domain.useCases.authorization
 
 import com.example.galleryapp.data.repositories.authorization.AuthRepository
 import com.google.firebase.auth.AuthResult

@@ -4,8 +4,8 @@ import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.base.BaseViewModel
 import com.example.galleryapp.data.preferences.Preferences
 import com.example.galleryapp.data.preferences.PreferencesUtils
-import com.example.galleryapp.data.useCases.authorization.CurrentUserUseCase
-import com.example.galleryapp.data.useCases.authorization.SignUpUseCase
+import com.example.galleryapp.domain.useCases.authorization.CurrentUserUseCase
+import com.example.galleryapp.domain.useCases.authorization.SignUpUseCase
 import com.example.galleryapp.presentation.authorization.login.AuthContract
 import com.example.galleryapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel

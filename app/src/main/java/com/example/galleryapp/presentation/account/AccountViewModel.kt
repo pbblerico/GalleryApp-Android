@@ -7,9 +7,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.data.models.Image
 import com.example.galleryapp.data.models.User
-import com.example.galleryapp.data.useCases.authorization.CurrentUserUseCase
-import com.example.galleryapp.data.useCases.pictures.GetGalleryUseCase
-import com.example.galleryapp.data.useCases.user.UserInfoUseCase
+import com.example.galleryapp.domain.useCases.authorization.CurrentUserUseCase
+import com.example.galleryapp.domain.useCases.pictures.GetGalleryUseCase
+import com.example.galleryapp.domain.useCases.user.UserInfoUseCase
 import com.example.galleryapp.utils.Resource
 import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel

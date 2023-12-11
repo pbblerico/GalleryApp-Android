@@ -1,4 +1,4 @@
-package com.example.galleryapp.data.useCases.pictures
+package com.example.galleryapp.domain.useCases.pictures
 
 import com.example.galleryapp.data.models.Image
 import com.example.galleryapp.data.repositories.firebaseRD.FRDBUserGalleryRepository

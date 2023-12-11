@@ -1,4 +1,4 @@
-package com.example.galleryapp.data.useCases.authorization
+package com.example.galleryapp.domain.useCases.authorization
 
 import com.example.galleryapp.data.models.User
 import com.example.galleryapp.data.repositories.authorization.AuthRepository

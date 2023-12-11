@@ -2,14 +2,14 @@ package com.example.galleryapp.data.di.useCase
 
 import com.example.galleryapp.data.repositories.authorization.AuthRepository
 import com.example.galleryapp.data.repositories.firebaseRD.FRDBUserRepository
-import com.example.galleryapp.data.useCases.authorization.CurrentUserInteraction
-import com.example.galleryapp.data.useCases.authorization.CurrentUserUseCase
-import com.example.galleryapp.data.useCases.authorization.LogOutInteraction
-import com.example.galleryapp.data.useCases.authorization.LogOutUseCase
-import com.example.galleryapp.data.useCases.authorization.LoginInteraction
-import com.example.galleryapp.data.useCases.authorization.LoginUseCase
-import com.example.galleryapp.data.useCases.authorization.SignUpInteraction
-import com.example.galleryapp.data.useCases.authorization.SignUpUseCase
+import com.example.galleryapp.domain.useCases.authorization.CurrentUserInteraction
+import com.example.galleryapp.domain.useCases.authorization.CurrentUserUseCase
+import com.example.galleryapp.domain.useCases.authorization.LogOutInteraction
+import com.example.galleryapp.domain.useCases.authorization.LogOutUseCase
+import com.example.galleryapp.domain.useCases.authorization.LoginInteraction
+import com.example.galleryapp.domain.useCases.authorization.LoginUseCase
+import com.example.galleryapp.domain.useCases.authorization.SignUpInteraction
+import com.example.galleryapp.domain.useCases.authorization.SignUpUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

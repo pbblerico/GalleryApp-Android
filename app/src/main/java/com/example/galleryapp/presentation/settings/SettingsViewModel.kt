@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.galleryapp.data.preferences.Preferences
 import com.example.galleryapp.data.preferences.PreferencesUtils
-import com.example.galleryapp.data.useCases.authorization.CurrentUserUseCase
-import com.example.galleryapp.data.useCases.authorization.LogOutUseCase
+import com.example.galleryapp.domain.useCases.authorization.CurrentUserUseCase
+import com.example.galleryapp.domain.useCases.authorization.LogOutUseCase
 import com.example.galleryapp.utils.enums.Languages
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

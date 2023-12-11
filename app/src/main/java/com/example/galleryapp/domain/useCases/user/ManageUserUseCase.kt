@@ -1,4 +1,4 @@
-package com.example.galleryapp.data.useCases.user
+package com.example.galleryapp.domain.useCases.user
 
 import com.example.galleryapp.data.repositories.firebaseRD.FRDBUserRepository
 import com.example.galleryapp.utils.Resource
